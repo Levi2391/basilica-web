@@ -1,136 +1,85 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Basílica de la Concepción</title>
-
-<style>
-html, body {
-  margin:0;
-  padding:0;
-  height:100%;
-  font-family:Arial, sans-serif;
-  background:black;
-  overflow:hidden;
-}
-
-#videoContainer { height:85vh; }
-
-video {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-#menu {
-  height:15vh;
-  display:flex;
-}
-
-.menuBtn {
-  flex:1;
-  font-size:2.6vh;
-  border:none;
-  color:white;
-  cursor:pointer;
-}
-
-#btnHistoria { background:#1e3a5f; }
-#btnHorarios { background:#5f3a1e; }
-#btnActividades { background:#1e5f3a; }
-#btnContacto { background:#5f1e3a; }
-
-.menuBtn:active { opacity:0.8; }
-
-#panel {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:black;
-  display:none;
-}
-
-#canvasView {
-  display:block;
-  width:100vw;
-  height:100vh;
-}
-
-.backBtn {
-  position:absolute;
-  top:10px;
-  left:10px;
-  z-index:10;
-  padding:15px 25px;
-  font-size:2.4vh;
-  background:#222;
-  color:white;
-  border:none;
-  cursor:pointer;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basílica de la Concepción</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./js/activities.js"></script>
+  <script src="./js/horarios.js"></script>
+  <script src="./js/contact.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300&family=Noto+Serif+Display:ital,wght@0,300;1,300&display=swap');
+  </style>
 </head>
 
 <body onclick="resetTimer()" ontouchstart="resetTimer()">
+  <div id="menuContainer"></div>
+  <div id="videoContainer">
+    <video id="mainVideo" autoplay loop muted playsinline>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+  </div>
 
-<div id="videoContainer">
-<video id="mainVideo" autoplay loop muted playsinline>
-<source src="video.mp4" type="video/mp4">
-</video>
-</div>
+  <div id="panel">
+    <button class="backBtn" onclick="goBack()">VOLVER</button>
+    <canvas id="canvasView"></canvas>
+    <div id="actividadesContainer" class="view-container w-full h-full overflow-y-auto p-12 bg-black text-white"></div>
+    <div id="horarios-container" class="view-container w-full overflow-y-auto p-12 bg-black text-white"></div>
+    <div id="contact-container" class="view-container w-full overflow-y-auto p-12 bg-black text-white"></div>
+  </div>
 
-<div id="menu">
-<button id="btnHistoria" class="menuBtn" onclick="openHistoria()">HISTORIA</button>
-<button id="btnHorarios" class="menuBtn" onclick="openHorarios()">HORARIOS</button>
-<button id="btnActividades" class="menuBtn" onclick="openActividades()">ACTIVIDADES</button>
-<button id="btnContacto" class="menuBtn" onclick="openContacto()">CONTACTO</button>
-</div>
+  <script>
+    // --- Load the Main menu ---
+    async function loadMenu() {
+      const res = await fetch("components/main-menu.html");
+      const html = await res.text();
+      document.getElementById("menuContainer").innerHTML = html;
+    }
 
-<div id="panel">
-  <button class="backBtn" onclick="goBack()">VOLVER</button>
-  <canvas id="canvasView"></canvas>
-</div>
+    loadMenu();
 
-<script>
-let inactivityTimer;
-let currentView = "video";
-const canvas = document.getElementById("canvasView");
-const ctx = canvas.getContext("2d");
+    // --- Timer
+    let inactivityTimer;
+    let currentView = "video";
+    const canvas = document.getElementById("canvasView");
+    const ctx = canvas.getContext("2d");
 
-// --- Timer de inactividad ---
-function resetTimer() {
-  clearTimeout(inactivityTimer);
-  inactivityTimer = setTimeout(goHome, 60000);
-}
+    // --- Timer de inactividad ---
+    function resetTimer() {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(goHome, 60000);
+    }
 
-function goHome(){
-  document.getElementById("panel").style.display="none";
-  canvas.style.display = "none";
-  document.getElementById("mainVideo").play();
-  currentView = "video";
-}
+    function goHome() {
+      document.getElementById("panel").style.display = "none";
 
-function goBack(){
-  if(currentView.startsWith("historiaDetalle")){
-      openHistoria();
-  } else {
-      goHome();
-  }
-}
+      hideAllViews(); // 👈 this now fully resets everything
 
-function clearCanvas(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
+      document.getElementById("mainVideo").play();
+      currentView = "video";
+    }
 
-// --- Mostrar imágenes en canvas con cover ---
-function renderImage(name){
-    clearCanvas();
-    const img = new Image();
-    img.src = "imagenes/" + name + ".jpg"; 
-    img.onload = () => {
+    function goBack() {
+      if (currentView.startsWith("historiaDetalle")) {
+        openHistoria();
+      } else {
+        goHome();
+      }
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // --- Mostrar imágenes en canvas con cover ---
+    function renderImage(name) {
+      clearCanvas();
+      const img = new Image();
+      img.src = "imagenes/" + name + ".jpg";
+      img.onload = () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
@@ -141,104 +90,162 @@ function renderImage(name){
 
         let drawWidth, drawHeight, offsetX, offsetY;
 
-        if(imgAspect > canvasAspect){
-            drawHeight = canvasHeight;
-            drawWidth = img.width * (canvasHeight / img.height);
-            offsetX = (canvasWidth - drawWidth)/2;
-            offsetY = 0;
+        if (imgAspect > canvasAspect) {
+          drawHeight = canvasHeight;
+          drawWidth = img.width * (canvasHeight / img.height);
+          offsetX = (canvasWidth - drawWidth) / 2;
+          offsetY = 0;
         } else {
-            drawWidth = canvasWidth;
-            drawHeight = img.height * (canvasWidth / img.width);
-            offsetX = 0;
-            offsetY = (canvasHeight - drawHeight)/2;
+          drawWidth = canvasWidth;
+          drawHeight = img.height * (canvasWidth / img.width);
+          offsetX = 0;
+          offsetY = (canvasHeight - drawHeight) / 2;
         }
 
         ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-    };
-}
+      };
+    }
 
-// --- Eliminar todos los botones de historia ---
-function removeHistoriaButtons(){
-    Array.from(document.getElementById("panel").getElementsByTagName("button"))
-        .forEach(b=> { if(!b.classList.contains("backBtn")) b.remove(); });
-}
+    // --- Eliminar todos los botones de historia ---
+    function removeHistoriaButtons() {
+      Array.from(document.getElementById("panel").getElementsByTagName("button"))
+        .forEach(b => { if (!b.classList.contains("backBtn")) b.remove(); });
+    }
 
-// --- HISTORIA ---
-function openHistoria(){
-    document.getElementById("panel").style.display="block";
-    canvas.style.display = "block";
-    document.getElementById("mainVideo").pause();
-    currentView = "historiaMenu";
+    // --- HISTORIA ---
+    function openHistoria() {
+      hideAllViews();
 
-    clearCanvas();
-    ctx.fillStyle = "white";
-    ctx.font = "50px Arial";
-    ctx.fillText("Historia - Selecciona sección:", 50, 150);
+      document.getElementById("panel").style.display = "block";
+      canvas.style.display = "block";
+      document.getElementById("mainVideo").pause();
 
-    removeHistoriaButtons();
+      currentView = "historiaMenu";
 
-    const sections = ["ubicacion","gotico","jonqueres","claustro","campanario","traslado","otras"];
-    sections.forEach((sec,i)=>{
-        let btn = document.createElement("button");
-        btn.innerText = sec.toUpperCase();
-        btn.style.position="absolute";
-        btn.style.left="50px";
-        btn.style.top=250 + i*80 + "px";
-        btn.style.padding="15px 25px";
-        btn.style.fontSize="24px";
-        btn.onclick = (function(s){ 
-            return function(){ showHistoria(s); }
-        })(sec);
-        document.getElementById("panel").appendChild(btn);
-    });
-}
+      clearCanvas();
+      ctx.fillStyle = "white";
+      ctx.font = "50px Arial";
+      ctx.fillText("Historia - Selecciona sección:", 50, 150);
 
-function showHistoria(section){
-    currentView = "historiaDetalle-" + section;
-    removeHistoriaButtons();
-    renderImage(section);
-}
+      removeHistoriaButtons();
+    }
 
-// --- HORARIOS ---
-function openHorarios(){
-    removeHistoriaButtons();
-    document.getElementById("panel").style.display="block";
-    canvas.style.display = "block";
-    document.getElementById("mainVideo").pause();
-    currentView = "horarios";
-    renderImage("horario");
-}
+    function showHistoria(section) {
+      currentView = "historiaDetalle-" + section;
+      removeHistoriaButtons();
+      renderImage(section);
+    }
 
-// --- ACTIVIDADES ---
-function openActividades(){
-    removeHistoriaButtons();
-    document.getElementById("panel").style.display="block";
-    canvas.style.display = "block";
-    document.getElementById("mainVideo").pause();
-    currentView = "actividades";
-    renderImage("actividades");
-}
+    // --- HORARIOS ---
+    function openHorarios() {
+      removeHistoriaButtons();
+      hideAllViews();
+      document.getElementById("panel").style.display = "grid";
+      canvas.style.display = "none";
+      document.getElementById("mainVideo").pause();
+      loadHorariosHTML();
+      // container.classList.remove("hidden");
+    }
 
-// --- CONTACTO ---
-function openContacto(){
-    removeHistoriaButtons();
-    document.getElementById("panel").style.display="block";
-    canvas.style.display = "block";
-    document.getElementById("mainVideo").pause();
-    currentView = "contacto";
-    renderImage("contacto");
-}
 
-// --- Redimensionar canvas al cambiar tamaño de ventana ---
-window.addEventListener('resize', () => {
-    if(currentView !== "video"){
+    // --- CONTACTO ---
+    function openContacto() {
+      removeHistoriaButtons();
+      hideAllViews();
+      document.getElementById("panel").style.display = "block";
+      canvas.style.display = "block";
+      document.getElementById("mainVideo").pause();
+      // currentView = "contacto";
+      // renderImage("contacto");
+      loadContactHTML();
+    }
+
+    // --- Redimensionar canvas al cambiar tamaño de ventana ---
+    window.addEventListener('resize', () => {
+      if (currentView !== "video") {
         const view = currentView.split('-')[1] || currentView;
         renderImage(view);
+      }
+    });
+
+    resetTimer();
+
+
+    // --- Activities ---
+    function openActividades() {
+      removeHistoriaButtons();
+      hideAllViews();
+
+      document.getElementById("panel").style.display = "block";
+      document.getElementById("mainVideo").pause();
+
+      // 👇 Hide canvas
+      canvas.style.display = "none";
+
+      // 👇 Show container
+      const container = document.getElementById("actividadesContainer");
+      container.style.display = "block";
+      container.innerHTML = "Cargando...";
+
+      container.innerHTML = `
+        <h1 class="text-6xl font-bold mb-12 text-center">
+          Actividades y Eventos
+        </h1>
+      `;
+
+      currentView = "actividades";
+
+      loadActividadesHTML();
+      container.classList.remove("hidden");
     }
-});
 
-resetTimer();
-</script>
+    function hideAllViews() {
+      // Hide canvas
+      canvas.style.display = "none";
 
+      // 👇 Select ALL view containers
+      const containers = document.querySelectorAll(".view-container");
+
+      containers.forEach(container => {
+        container.style.display = "none";
+        container.innerHTML = "";
+      });
+    }
+
+    function toggleTheme() {
+      const current = document.body.getAttribute("data-theme");
+      const newTheme = current === "dark" ? "light" : "dark";
+
+      document.body.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+
+      updateThemeIcon(newTheme);
+    }
+
+    // Set correct theme icon 
+    function updateThemeIcon(theme) {
+      const btn = document.getElementById("themeIcon");
+      if (!btn) return;
+
+      btn.classList.add("rotating");
+
+      setTimeout(() => {
+        btn.textContent = theme === "dark" ? "☀️" : "🌙";
+        btn.classList.remove("rotating");
+      }, 150);
+    }
+
+    // Apply saved theme on load
+    (function () {
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      document.body.setAttribute("data-theme", savedTheme);
+
+      // 👇 wait a bit because menu is loaded via fetch
+      setTimeout(() => {
+        updateThemeIcon(savedTheme);
+      }, 100);
+    })();
+  </script>
 </body>
+
 </html>
