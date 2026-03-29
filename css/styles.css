@@ -157,13 +157,13 @@ video {
 
 .backBtn {
     position: absolute;
-    top: 10px;
+    bottom: 10px;
     left: 10px;
     z-index: 10;
     padding: 15px 25px;
-    font-size: 2.4vh;
-    background: #222;
-    color: white;
+    /* font-size: 2.4vh; */
+    background: var(--accent);
+    color: var(--text-main);
     border: none;
     cursor: pointer;
 }
@@ -260,11 +260,11 @@ body {
 
 /* Main Menu */
 .menu-bar {
-    height: 10vh;
+    height: clamp(80px, 9vh, 160px);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
+    padding-right: 1.8rem;
 
     background: var(--bg-card);
     border-top: 2px solid var(--border);
@@ -276,18 +276,19 @@ body {
 }
 
 .menu-logo {
-    height: 80%;
+    height: clamp(50px, 8vh, 120px);
     max-height: 90px;
     object-fit: contain;
+    width: auto;
 }
 
 .menu-buttons {
     display: flex;
-    gap: 20px;
+    gap: clamp(1rem, 1.2rem, 1.4rem);
 }
 
 .menu-buttons button {
-    font-size: 2.1vh;
+    font-size: clamp(16px, 2vw, 28px);
     padding: 5px 10px;
     border: none;
     cursor: pointer;
