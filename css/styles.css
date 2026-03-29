@@ -102,7 +102,7 @@ span {
 }
 
 #videoContainer {
-    height: 85vh;
+    height: 90vh;
 }
 
 video {
@@ -161,7 +161,7 @@ video {
     left: 10px;
     z-index: 10;
     padding: 15px 25px;
-    /* font-size: 2.4vh; */
+    font-size: 2.4vh;
     background: var(--accent);
     color: var(--text-main);
     border: none;
