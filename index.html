@@ -3,241 +3,411 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Basílica de la Concepción</title>
 
 <style>
-html, body {
-  margin:0;
-  padding:0;
-  height:100%;
-  font-family:Arial, sans-serif;
-  background:black;
-  overflow:hidden;
+
+html,body{
+margin:0;
+padding:0;
+height:100%;
+font-family:Arial;
+background:black;
+overflow:hidden;
 }
 
-#videoContainer { height:85vh; }
+/* VIDEO */
 
-video {
-  width:100%;
-  height:100%;
-  object-fit:cover;
+#videoContainer{
+height:85vh;
 }
 
-#menu {
-  height:15vh;
-  display:flex;
+video{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-.menuBtn {
-  flex:1;
-  font-size:2.6vh;
-  border:none;
-  color:white;
-  cursor:pointer;
+/* MENU PRINCIPAL */
+
+#menu{
+height:15vh;
+display:flex;
 }
 
-#btnHistoria { background:#1e3a5f; }
-#btnHorarios { background:#5f3a1e; }
-#btnActividades { background:#1e5f3a; }
-#btnContacto { background:#5f1e3a; }
-
-.menuBtn:active { opacity:0.8; }
-
-#panel {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:black;
-  display:none;
+.menuBtn{
+flex:1;
+border:none;
+font-size:2.5vh;
+color:white;
+cursor:pointer;
 }
 
-#canvasView {
-  display:block;
-  width:100vw;
-  height:100vh;
+#btnHistoria{background:#1e3a5f;}
+#btnHorarios{background:#1e3a5f;}
+#btnActividades{background:#1e3a5f;}
+#btnContacto{background:#1e3a5f;}
+
+/* PANEL */
+
+#panel{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:none;
 }
 
-.backBtn {
-  position:absolute;
-  top:10px;
-  left:10px;
-  z-index:10;
-  padding:15px 25px;
-  font-size:2.4vh;
-  background:#222;
-  color:white;
-  border:none;
-  cursor:pointer;
+#canvasView{
+width:100vw;
+height:100vh;
+display:block;
 }
+
+/* BOTON VOLVER */
+
+.backBtn{
+position:absolute;
+top:20px;
+left:20px;
+z-index:10;
+padding:14px 24px;
+font-size:22px;
+background:#222;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* MENU HISTORIA */
+
+#historiaMenu{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:85%;
+max-width:600px;
+
+}
+
+.historiaBtn{
+
+display:flex;
+align-items:center;
+
+background:#1d57a8;
+
+color:white;
+
+padding:18px;
+
+border-radius:40px;
+
+margin:18px 0;
+
+font-size:24px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:0 5px 10px rgba(0,0,0,0.3);
+
+}
+
+.historiaBtn img{
+
+width:55px;
+height:55px;
+
+border-radius:50%;
+
+margin-right:18px;
+
+}
+
 </style>
 </head>
 
 <body onclick="resetTimer()" ontouchstart="resetTimer()">
 
+<!-- VIDEO -->
+
 <div id="videoContainer">
+
 <video id="mainVideo" autoplay loop muted playsinline>
 <source src="video.mp4" type="video/mp4">
 </video>
+
 </div>
+
+<!-- MENU -->
 
 <div id="menu">
+
 <button id="btnHistoria" class="menuBtn" onclick="openHistoria()">HISTORIA</button>
+
 <button id="btnHorarios" class="menuBtn" onclick="openHorarios()">HORARIOS</button>
+
 <button id="btnActividades" class="menuBtn" onclick="openActividades()">ACTIVIDADES</button>
+
 <button id="btnContacto" class="menuBtn" onclick="openContacto()">CONTACTO</button>
+
 </div>
 
+<!-- PANEL -->
+
 <div id="panel">
-  <button class="backBtn" onclick="goBack()">VOLVER</button>
-  <canvas id="canvasView"></canvas>
+
+<button class="backBtn" onclick="goBack()">VOLVER</button>
+
+<canvas id="canvasView"></canvas>
+
 </div>
 
 <script>
-let inactivityTimer;
-let currentView = "video";
-const canvas = document.getElementById("canvasView");
-const ctx = canvas.getContext("2d");
 
-// --- Timer de inactividad ---
-function resetTimer() {
-  clearTimeout(inactivityTimer);
-  inactivityTimer = setTimeout(goHome, 60000);
+let inactivityTimer
+let currentView="video"
+
+const canvas=document.getElementById("canvasView")
+const ctx=canvas.getContext("2d")
+
+/* TIMER */
+
+function resetTimer(){
+
+clearTimeout(inactivityTimer)
+
+inactivityTimer=setTimeout(goHome,60000)
+
 }
+
+/* HOME */
 
 function goHome(){
-  document.getElementById("panel").style.display="none";
-  canvas.style.display = "none";
-  document.getElementById("mainVideo").play();
-  currentView = "video";
+
+document.getElementById("panel").style.display="none"
+
+document.getElementById("mainVideo").play()
+
+removeHistoriaMenu()
+
+currentView="video"
+
 }
+
+/* BACK */
 
 function goBack(){
-  if(currentView.startsWith("historiaDetalle")){
-      openHistoria();
-  } else {
-      goHome();
-  }
+
+if(currentView==="historiaDetalle"){
+
+openHistoria()
+
 }
+
+else{
+
+goHome()
+
+}
+
+}
+
+/* LIMPIAR CANVAS */
 
 function clearCanvas(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
 }
 
-// --- Mostrar imágenes en canvas con cover ---
+/* MOSTRAR IMAGEN */
+
 function renderImage(name){
-    clearCanvas();
-    const img = new Image();
-    img.src = "imagenes/" + name + ".jpg"; 
-    img.onload = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
 
-        const canvasWidth = canvas.width;
-        const canvasHeight = canvas.height;
-        const canvasAspect = canvasWidth / canvasHeight;
-        const imgAspect = img.width / img.height;
+removeHistoriaMenu()
 
-        let drawWidth, drawHeight, offsetX, offsetY;
+canvas.style.display="block"
 
-        if(imgAspect > canvasAspect){
-            drawHeight = canvasHeight;
-            drawWidth = img.width * (canvasHeight / img.height);
-            offsetX = (canvasWidth - drawWidth)/2;
-            offsetY = 0;
-        } else {
-            drawWidth = canvasWidth;
-            drawHeight = img.height * (canvasWidth / img.width);
-            offsetX = 0;
-            offsetY = (canvasHeight - drawHeight)/2;
-        }
+const img=new Image()
 
-        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-    };
+img.src="imagenes/"+name+".jpg"
+
+img.onload=()=>{
+
+canvas.width=window.innerWidth
+canvas.height=window.innerHeight
+
+const cw=canvas.width
+const ch=canvas.height
+
+const ca=cw/ch
+const ia=img.width/img.height
+
+let w,h,x,y
+
+if(ia>ca){
+
+h=ch
+w=img.width*(ch/img.height)
+
+x=(cw-w)/2
+y=0
+
 }
 
-// --- Eliminar todos los botones de historia ---
-function removeHistoriaButtons(){
-    Array.from(document.getElementById("panel").getElementsByTagName("button"))
-        .forEach(b=> { if(!b.classList.contains("backBtn")) b.remove(); });
+else{
+
+w=cw
+h=img.height*(cw/img.width)
+
+x=0
+y=(ch-h)/2
+
 }
 
-// --- HISTORIA ---
+ctx.drawImage(img,x,y,w,h)
+
+}
+
+}
+
+/* HISTORIA MENU */
+
 function openHistoria(){
-    document.getElementById("panel").style.display="block";
-    canvas.style.display = "block";
-    document.getElementById("mainVideo").pause();
-    currentView = "historiaMenu";
 
-    clearCanvas();
-    ctx.fillStyle = "white";
-    ctx.font = "50px Arial";
-    ctx.fillText("Historia - Selecciona sección:", 50, 150);
+document.getElementById("panel").style.display="block"
 
-    removeHistoriaButtons();
+canvas.style.display="none"
 
-    const sections = ["ubicacion","gotico","jonqueres","claustro","campanario","traslado","otras"];
-    sections.forEach((sec,i)=>{
-        let btn = document.createElement("button");
-        btn.innerText = sec.toUpperCase();
-        btn.style.position="absolute";
-        btn.style.left="50px";
-        btn.style.top=250 + i*80 + "px";
-        btn.style.padding="15px 25px";
-        btn.style.fontSize="24px";
-        btn.onclick = (function(s){ 
-            return function(){ showHistoria(s); }
-        })(sec);
-        document.getElementById("panel").appendChild(btn);
-    });
+document.getElementById("mainVideo").pause()
+
+currentView="historiaMenu"
+
+removeHistoriaMenu()
+
+const html=`
+
+<div id="historiaMenu">
+
+<div class="historiaBtn" onclick="showHistoria('ubicacion')">
+<img src="icons/ubicacion.png">
+<span>Ubicación</span>
+</div>
+
+<div class="historiaBtn" onclick="showHistoria('gotico')">
+<img src="icons/gotico.png">
+<span>El Gótico en el Eixample</span>
+</div>
+
+<div class="historiaBtn" onclick="showHistoria('jonqueres')">
+<img src="icons/jonqueres.png">
+<span>Santa María de Jonqueres</span>
+</div>
+
+<div class="historiaBtn" onclick="showHistoria('claustro')">
+<img src="icons/claustro.png">
+<span>El Claustro</span>
+</div>
+
+<div class="historiaBtn" onclick="showHistoria('campanario')">
+<img src="icons/campanario.png">
+<span>Campanario de San Miguel</span>
+</div>
+
+<div class="historiaBtn" onclick="showHistoria('traslado')">
+<img src="icons/traslado.png">
+<span>El Traslado</span>
+</div>
+
+<div class="historiaBtn" onclick="showHistoria('otras')">
+<img src="icons/otras.png">
+<span>Otras Construcciones</span>
+</div>
+
+</div>
+
+`
+
+document.getElementById("panel").insertAdjacentHTML("beforeend",html)
+
 }
+
+/* MOSTRAR HISTORIA */
 
 function showHistoria(section){
-    currentView = "historiaDetalle-" + section;
-    removeHistoriaButtons();
-    renderImage(section);
+
+currentView="historiaDetalle"
+
+renderImage(section)
+
 }
 
-// --- HORARIOS ---
+/* HORARIOS */
+
 function openHorarios(){
-    removeHistoriaButtons();
-    document.getElementById("panel").style.display="block";
-    canvas.style.display = "block";
-    document.getElementById("mainVideo").pause();
-    currentView = "horarios";
-    renderImage("horario");
+
+document.getElementById("panel").style.display="block"
+
+document.getElementById("mainVideo").pause()
+
+currentView="horarios"
+
+renderImage("horario")
+
 }
 
-// --- ACTIVIDADES ---
+/* ACTIVIDADES */
+
 function openActividades(){
-    removeHistoriaButtons();
-    document.getElementById("panel").style.display="block";
-    canvas.style.display = "block";
-    document.getElementById("mainVideo").pause();
-    currentView = "actividades";
-    renderImage("actividades");
+
+document.getElementById("panel").style.display="block"
+
+document.getElementById("mainVideo").pause()
+
+currentView="actividades"
+
+renderImage("actividades")
+
 }
 
-// --- CONTACTO ---
+/* CONTACTO */
+
 function openContacto(){
-    removeHistoriaButtons();
-    document.getElementById("panel").style.display="block";
-    canvas.style.display = "block";
-    document.getElementById("mainVideo").pause();
-    currentView = "contacto";
-    renderImage("contacto");
+
+document.getElementById("panel").style.display="block"
+
+document.getElementById("mainVideo").pause()
+
+currentView="contacto"
+
+renderImage("contacto")
+
 }
 
-// --- Redimensionar canvas al cambiar tamaño de ventana ---
-window.addEventListener('resize', () => {
-    if(currentView !== "video"){
-        const view = currentView.split('-')[1] || currentView;
-        renderImage(view);
-    }
-});
+/* BORRAR MENU HISTORIA */
 
-resetTimer();
+function removeHistoriaMenu(){
+
+const m=document.getElementById("historiaMenu")
+
+if(m) m.remove()
+
+}
+
+resetTimer()
+
 </script>
 
 </body>
