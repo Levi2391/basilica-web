@@ -252,6 +252,14 @@ body {
     min-height: 80vh;
 }
 
+#horarios-container {
+    background-color: #ffffff;
+}
+
+#contact-container {
+    background-color: rgb(158, 178, 206);
+}
+
 .view-container {
     display: none;
     justify-content: center;
@@ -321,6 +329,6 @@ body {
 }
 
 .img-contained {
-    height: 90vh;
+    height: 100vh;
     object-fit: cover;
 }
