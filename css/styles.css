@@ -139,22 +139,6 @@ video {
     opacity: 0.8;
 }
 
-#panel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    display: none;
-}
-
-#canvasView {
-    display: block;
-    width: 100vw;
-    height: 100vh;
-}
-
 .backBtn {
     position: absolute;
     bottom: 10px;
@@ -240,6 +224,25 @@ body {
     transition: transform 0.3s ease;
 }
 
+#panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: none;
+}
+
+#historia-container {
+    width: 100%;
+    height: 100%;           /* Fill parent */
+    overflow-y: auto;       /* Enable vertical scroll */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
 #actividadesContainer {
     width: 100%;
     height: 100%;
@@ -296,7 +299,7 @@ body {
 }
 
 .menu-buttons button {
-    font-size: clamp(16px, 2vw, 28px);
+    font-size: clamp(16px, 2.2vw, 28px);
     padding: 5px 10px;
     border: none;
     cursor: pointer;
@@ -332,3 +335,53 @@ body {
     height: 100vh;
     object-fit: cover;
 }
+
+/*Historia Section*/
+
+.historiaBtn {
+    display: flex;
+    vertical-align: middle;
+    justify-items: center;
+    align-items: anchor-center;
+    min-width: 75vw;
+    gap: 1.5rem;
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 12px;
+    margin-bottom: .5rem;
+    transition: all 0.3s ease;
+}
+
+.historiaBtn:hover {
+    background: var(--bg-card-hover);
+    cursor: pointer;
+}
+
+.historiaBtn img.w-20.mb-4 {
+    min-width: 6rem;
+    min-height: 5rem;
+    height: 100%;
+    margin: 0;
+    aspect-ratio: 3 / 2;
+}
+
+.historiaBtn span {
+    text-transform: uppercase;
+}
+
+div#langs {
+    column-gap: 2rem;
+    display: flex;
+    justify-content: end;
+}
+
+.active-lang {
+    background-color: var(--text-accent);
+    color: black;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+
