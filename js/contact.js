@@ -3,9 +3,7 @@ function loadContactHTML() {
 
     document.getElementById("panel").style.display = "block";
     document.getElementById("mainVideo").pause();
-
-    canvas.style.display = "none";
-
+    
     const container = document.getElementById("contact-container");
     console.log(container);
     container.style.display = "grid";

@@ -3,9 +3,7 @@ function loadHorariosHTML() {
 
     document.getElementById("panel").style.display = "block";
     document.getElementById("mainVideo").pause();
-
-    canvas.style.display = "none";
-
+    
     const container = document.getElementById("horarios-container");
     console.log(container);
     container.style.display = "grid";

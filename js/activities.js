@@ -206,17 +206,15 @@ function openActividades() {
     removeHistoriaButtons();
     document.getElementById("panel").style.display = "block";
     document.getElementById("mainVideo").pause();
-    canvas.style.display = "none";
 
     const container = document.getElementById("actividadesContainer");
-    container.classList.remove("hidden"); // remove 'hidden'
-    container.style.display = "block"; // important
+    container.classList.remove("hidden");
+    container.style.display = "block";
     container.innerHTML = `Cargando...`;
 
     currentView = "actividades";
 
     loadActividadesHTML();
-    console.log("Activities container:", container);
 }
 
 setTimeout(() => {
