@@ -1,0 +1,126 @@
+{
+  "history": {
+    "title": "Història",
+    "intro": "La Basílica de la Immaculada Concepció...",
+    "menu": [
+      {
+        "id": "origin",
+        "label": "Origen del temple",
+        "icon": "icons/jonqueres.png"
+      },
+      {
+        "id": "architecture",
+        "label": "El gòtic a l’Eixample",
+        "icon": "icons/gotico.png"
+      },
+      {
+        "id": "place",
+        "label": "Ubicació",
+        "icon": "icons/ubicacion.png"
+      },
+      {
+        "id": "cloister",
+        "label": "El claustre",
+        "icon": "icons/claustro.png"
+      },
+      {
+        "id": "transfer",
+        "label": "El trasllat",
+        "icon": "icons/traslado.png"
+      },
+      {
+        "id": "bell-tower",
+        "label": "El campanar",
+        "icon": "icons/campanario.png"
+      }
+    ],
+    "sections": {
+      "origin": {
+        "title": "Origen del temple",
+        "content": [
+          {
+            "type": "paragraph",
+            "p": "Un esperat permís reial va permetre enderrocar les muralles que tancaven la ciutat antiga i va obrir la possibilitat que Barcelona s’expandís cap al que avui és l’Eixample. A prop de l’antiga muralla, molt a prop de l’actual plaça d’Urquinaona, s’aixecava el convent de Santa Maria de Jonqueres, un bell temple gòtic amb un magnífic claustre. L’expansió necessària de la ciutat va fer imprescindible la demolició d’aquest conjunt arquitectònic a finals del segle XIX."
+          },
+          {
+            "type": "image-text",
+            "img": "./imagenes/jonqueres.jpg",
+            "p": "Tanmateix, l’Ajuntament va decidir que el convent es desmuntaria i es traslladaria pedra per pedra des del seu emplaçament original al barri antic cap a la nova zona d’expansió: l’Eixample. Aquesta decisió és l’origen del trasllat. Després d’algunes modificacions (algunes necessàries pels danys de 1936–1939), la nau principal presenta l’aspecte actual."
+          },
+          {
+            "type": "text-image",
+            "p": "El 7 de desembre de 1942 es va col·locar, dins del petit temple neogòtic situat al centre de l’altar major, una imatge de la Immaculada Concepció, patrona del temple, obra de l’escultor Enric Monjo.",
+            "img": "./imagenes/jonqueres.jpg"
+          }
+        ]
+      },
+      "architecture": {
+        "title": "El gòtic català a l’Eixample",
+        "content": [
+          {
+            "type": "image-text",
+            "img": "./imagenes/gotico.jpg",
+            "p": "La història de la parròquia de la Concepció té nombroses peculiaritats que la fan especialment interessant des del punt de vista històric, arquitectònic, estètic, social i religiós. L’edifici actual, situat en ple Eixample, és en realitat una construcció gòtica. Molts visitants es pregunten: “Què hi fa una església i un claustre gòtics enmig de la quadrícula de l’Eixample?”. La resposta es troba en una història de trasllats i reconstruccions que encara avui sorprèn."
+          }
+        ]
+      },
+      "place": {
+        "title": "Una ubicació privilegiada dins la ciutat",
+        "content": [
+          {
+            "type": "image-text",
+            "img": "./imagenes/ubicacion.jpg",
+            "p": "L’església de la Concepció està situada en una de les zones amb més trànsit de Barcelona: al quadrant sud-est de l’illa formada pels carrers d’Aragó, Roger de Llúria, València i Bruc. Disposa de dues grans façanes obertes als carrers d’Aragó i Roger de Llúria, fet que la converteix en una parròquia molt visible i present en la vida quotidiana dels veïns i visitants."
+          },
+          {
+            "type": "text-image",
+            "p": "Des dels seus inicis, la parròquia es va convertir en el centre de nombroses activitats religioses i socials de la nova àrea d’expansió que representava l’Eixample barceloní.",
+            "img": "./imagenes/ubicacion.jpg"
+          }
+        ]
+      },
+      "cloister": {
+        "title": "El claustre",
+        "content": [
+          {
+            "type": "text-image",
+            "p": "Adossat a l’església, el monestir de Santa Maria de Jonqueres tenia un magnífic claustre gòtic, un dels més grans de Barcelona. Els seus elements arquitectònics —dues galeries superposades amb columnes esveltes i arcs apuntats— comparteixen característiques amb el gòtic del Palau de la Generalitat.",
+            "img": "./imagenes/claustro.jpg"
+          },
+          {
+            "type": "text-image",
+            "img": "./imagenes/claustro.jpg",
+            "p": "Les autoritats barcelonines també van considerar important conservar aquest conjunt i, amb el temps, el claustre es va annexar a l’església en uns terrenys parroquials adjacents a la nau principal."
+          },
+          {
+            "type": "paragraph",
+            "p": "El claustre és, juntament amb la nau principal, el símbol més característic de la parròquia. És el centre de les activitats no litúrgiques i ofereix un espai de calma enmig del bullici de la ciutat. Sovint acull concerts a l’aire lliure, actes culturals i altres esdeveniments."
+          }
+        ]
+      },
+      "transfer": {
+        "title": "El trasllat",
+        "content": [
+          {
+            "type": "paragraph",
+            "p": "Gràcies a la sensibilitat històrica i estètica dels nostres predecessors, s’han pogut conservar tots els elements arquitectònics que avui formen la parròquia: la nau principal, el claustre i el campanar, tot i haver estat traslladats del seu emplaçament original."
+          },
+          {
+            "type": "paragraph",
+            "p": "La documentació sobre el trasllat no és gaire precisa, però en termes generals: l’església es va traslladar entre 1869 i 1871; el claustre es va desmuntar i reconstruir entre 1869 i 1888; i el campanar de Sant Miquel es va annexar el 1879. El projecte original s’atribueix a l’arquitecte Josep Boixareu i les primeres obres al constructor Jeroni Granell."
+          }
+        ]
+      },
+      "bell-tower": {
+        "title": "El campanar",
+        "content": [
+          {
+            "type": "image-text",
+            "img": "./imagenes/campanario.jpg",
+            "p": "A prop de l’actual plaça de Sant Miquel hi havia una església que es va haver d’enderrocar per facilitar l’expansió urbana. El seu campanar gòtic es va conservar i es va integrar a la Concepció. Posteriorment s’hi van afegir elements decoratius a la part superior que li donen l’aspecte característic actual."
+          }
+        ]
+      }
+    }
+  }
+}

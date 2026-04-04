@@ -1,0 +1,127 @@
+{
+  "history": {
+    "title": "Historia",
+    "intro": "La Basílica de la Concepción...",
+    "menu": [
+      {
+        "id": "origin",
+        "label": "Origen del templo",
+        "icon": "icons/jonqueres.png"
+      },
+      {
+        "id": "architecture",
+        "label": "El Gótico en el Eixample",
+        "icon": "icons/gotico.png"
+      },
+      {
+        "id": "place",
+        "label": "Ubicación",
+        "icon": "icons/ubicacion.png"
+      },
+      {
+        "id": "cloister",
+        "label": "El Claustro",
+        "icon": "icons/claustro.png"
+      },
+      {
+        "id": "transfer",
+        "label": "El Translado",
+        "icon": "icons/traslado.png"
+      },
+      {
+        "id": "bell-tower",
+        "label": "El Campanario",
+        "icon": "icons/campanario.png"
+      }
+    ],
+    "sections": {
+      "origin": {
+        "title": "Historia",
+        "content": [
+          {
+            "type": "paragraph",
+            "p": "Un ansiado permiso real permitió derribar las murallas que cerraban la ciudad antigua y abrió la posibilidad de que la ciudad se expandiera hacia lo que hoy es el Eixample. Al lado de la antigua muralla barcelonesa, muy cerca de donde ahora se encuentra la plaza de Urquinaona, se levantaba el convento de Santa María de Jonqueres, un bello templo gótico, con un magnífico claustro de considerables dimensiones.\nLa necesaria expansión de Barcelona hizo\nimprescindible que este conjunto arquitectónico se demoliera hacia\nfinales del siglo XIX."
+          },
+          {
+            "type": "image-text",
+            "img": "./imagenes/jonqueres.jpg",
+            "p": "El Ayuntamiento decidió, sin\nembargo, que el convento se\ndesmontaría y trasladaría piedra por piedra desde su emplazamiento\noriginal (en el barrio viejo) hacia la\nnueva\nzona\nde expansión\neconómica\ndemográfica:\nel\nEixample. Esta decisión es el origen del traslado.\nTras\nalgunas\nmodificaciones\n(algunas\nimprescindibles después de los\ndestrozos de 1936-1939), la nave principal presenta el aspecto que hoy vemos."
+          },
+          {
+            "type": "text-image",
+            "p": "El 7 de diciembre de 1942 se colocó, en el interior del pequeño templo neogótico situado en el centro del altar mayor, una bella imagen de la Inmaculada Concepción, patrona del templo, realizada por el escultor Enric Monjo.",
+            "img": "./imagenes/jonqueres.jpg"
+          }
+        ]
+      },
+      "architecture": {
+        "title": "EL GÓTICO CATALÁN EN MEDIO DEL EIXAMPLE BARCELONÉS",
+        "content": [
+          {
+            "type": "image-text",
+            "img": "./imagenes/gotico.jpg",
+            "p": "La historia de la Parroquia de la\nConcepción tiene numerosas peculiaridades que la hacen\nespecialmente\ninteresante\ndesde el punto de VIsta\nhistórico-arquitectónico,\nestético, social y, sobre todo, religioso. El edificio de la actual parroquia, en pleno Eixample barcelonés, es, de hecho, una construcción gótica. \"¿Qué hace una iglesia y un claustro góticos en medio de la cuadrícula del Eixample de Cerdà?\"\n• suelen\npreguntarse\nlos\npaseantes\nbarceloneses\nturistas que\ntransitan por\nesta zona. La\nrespuesta es que la historia de la\nConcepción es la historia de una serie\nde\ntraslados\nconstrucciones realizados a lo largo del tiempo que aún sorprenden hoy en día"
+          }
+        ]
+      },
+      "place": {
+        "title": "UNA UBICACIÓN INMEJORABLE\nDENTRO DE LA CIUDAD",
+        "content": [
+          {
+            "type": "image-text",
+            "img": "./imagenes/ubicacion.jpg",
+            "p": "La iglesia de la Concepción está situada en uno de los lugares con más tránsito de toda\nBarcelona: el cuadrante sureste de la manzana formada por la confluencia de las calles de\nAragón,\nRoger\nde\nLluria,\nValencia y Bruc. Cuenta con dos grandes fachadas abiertas a las calles de Aragón y Roger de Llúria. Esto la convierte en una parroquia especialmente visible, muy presente en la vida de los vecinos de la zona y de los visitantes."
+          },
+          {
+            "type": "text-image",
+            "p": "Desde que comenzó\na\nconstruirse, la parroquia de la Concepción se convirtió en el centro\nde\nnumerosas\nactividades\nreligiosas\nsociales de la nueva área de\nexpansión que representaba el\nEixample barcelonés.",
+            "img": "./imagenes/ubicacion.jpg"
+          }
+        ]
+      },
+      "cloister": {
+        "title": "El Claustro",
+        "content": [
+          {
+            "type": "text-image",
+            "p": "Adosado a la iglesia, el monasterio de Santa María de Jonqueres tenía un magnífico claustro gótico, de los más grandes de Barcelona (junto con el de la catedral y el del monasterio de Pedralbes). Los elementos\narquitectónicos que\nconforman\neste claustro\n(dos\ngalerías\nsuperpuestas\nde\nestilizadas columnas y bellísimos\narcos apuntados)\ncomparten\nmuchos elementos con el gótico del Palacio de la Generalitat.",
+            "img": "./imagenes/claustro.jpg"
+          },
+          {
+            "type": "text-image",
+            "img": "./imagenes/claustro.jpg",
+            "p": "Las autoridades barcelonesas también\nconsideraron\nconveniente\nconservar un conjunto de tanto valor y, al cabo de unos años, el claustro de Santa\nMaría de\nJonqueres se adosó al cuerpo de la iglesia, en unos\nterrenos\nparroquiales\nanexos\nla nave\nprincipal."
+          },
+          {
+            "type": "paragraph",
+            "p": "El claustro es, junto con la nave principal, el símbolo más característico de la parroquia de la Concepción y se convierte en el centro neurálgico de todos los asuntos parroquiales ajenos al culto litúrgico. El espacio ofrece a quienes se acercan (entre ellos cada vez más barceloneses interesados en conocer la\nciudad y turistas curiosos) un oasis de paz y tranquilidad en medio del centro comercial y de negocios en el que está inmerso; y a menudo es el escenario ideal para conciertos al aire libre, presentaciones de actos culturales, refrigerios, etc."
+          }
+        ]
+      },
+      "transfer": {
+        "title": "El Translado",
+        "content": [
+          {
+            "type": "paragraph",
+            "p": "Debemos a la sensibilidad histórica y estética de nuestros antepasados el hecho de haber mantenido, aunque fuera lejos de su emplazamiento original, todos los elementos arquitectónicos que conforman hoy la parroquia de la Inmaculada Concepción y Asunción de Nuestra Señora: nave principal, claustro\ny campanario."
+            
+          },
+          {
+            "type": "paragraph",
+            "p": "La documentación sobre el traslado de los diversos elementos arquitectónicos\nno es muy abundante ni precisa en cuanto a la\ndatación\nde algunas\nconstrucciones. Sin embargo, a grandes rasgos, podríamos considerar que el traslado de la iglesia se realizó entre 1869 y 1871; entre 1869 y 1888 organizaron el desmontaje y la nueva construcción del claustro; y, finalmente, la anexión del campanario de San Miguel se llevó a cabo en 1879. Parece que el proyecto original es del arquitecto Josep Boixareu; y la ejecución real de las primeras obras, del constructor Jeroni Granell."
+          }
+        ]
+      },
+      "bell-tower": {
+        "title": "El Translado",
+        "content": [
+          {
+            "type": "image-text",
+            "img": "./imagenes/campanario.jpg",
+            "p": "Detrás del Ayuntamiento, más o menos en la actual plaza de San Miguel, había una iglesia con el mismo nombre, que también debía demolerse para favorecer la expansión del\ndenso\nentramado medieval de calles. Se decidió que el campanario de\naquella iglesia de San Miguel, también gótico, podría ser el complemento perfecto de la nave principal de la Concepción, ya trasladada. A este campanario se añadieron algunos elementos\nconstructivos\n(pináculos\ny\ndecoraciones)\nen la parte\nsuperior, que le otorgaron el aspecto peculiar que\nhoy\npodemos ver."
+          }
+        ]
+      }
+    }
+  }
+}
