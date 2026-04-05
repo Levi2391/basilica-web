@@ -1,0 +1,51 @@
+async function openHistoria() {
+    currentView = "history";
+    showPanel("grid");
+    hideAllViews();
+
+    const container = document.getElementById("historia-container");
+    container.style.display = "grid";
+
+    const res = await fetch("components/historia-menu.html");
+    container.innerHTML = await res.text();
+
+    const menuDiv = container.querySelector("#historiaMenu");
+    if (!menuDiv) {
+        container.innerHTML = '<div id="historiaMenu"></div>';
+    }
+    
+    if (!translations.history) {
+        console.error("Translations not loaded yet");
+        return;
+    }
+    
+    renderHistoriaMenu(container);
+    updateLangUI();
+}
+
+function showHistoria(sectionId) {
+    currentView = `historiaDetalle-${sectionId}`;
+    const container = document.getElementById("historia-container");
+    const section = translations.history.sections[sectionId];
+
+    container.innerHTML = `
+        <h1 class="text-5xl mb-10">${section.title}</h1>
+        ${section.content.map(block => {
+        if (block.type === "paragraph")
+            return `<p class="mb-6">${block.p}</p>`;
+
+        if (block.type === "text-image")
+            return `<div class="grid grid-cols-2 gap-8 mb-12">
+                    <p>${block.p}</p>
+                    <img src="${block.img}" class="w-full">
+                </div>`;
+
+        if (block.type === "image-text")
+            return `<div class="grid grid-cols-2 gap-8 mb-12">
+                    <img src="${block.img}" class="w-full">
+                    <p>${block.p}</p>
+                </div>`;
+    }).join("")}
+    `;
+
+}
