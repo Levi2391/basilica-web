@@ -38,6 +38,13 @@
       // --- Timer de inactividad ---
       function resetTimer() {
           clearTimeout(inactivityTimer);
+          
+          let timeout = 60000; // default 1 minute
+          
+          if (currentView === "history" || currentView === "history-detail") {
+              timeout = 300000; // 5 minutes for history pages
+          }
+          
           inactivityTimer = setTimeout(goHome, 60000);
       }
       
