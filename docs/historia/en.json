@@ -9,6 +9,11 @@
         "icon": "icons/jonqueres.png"
       },
       {
+        "id": "transfer",
+        "label": "The Transfer",
+        "icon": "icons/traslado.png"
+      },
+      {
         "id": "architecture",
         "label": "Gothic Architecture",
         "icon": "icons/gotico.png"
@@ -22,11 +27,6 @@
         "id": "cloister",
         "label": "The Cloister",
         "icon": "icons/claustro.png"
-      },
-      {
-        "id": "transfer",
-        "label": "The Transfer",
-        "icon": "icons/traslado.png"
       },
       {
         "id": "bell-tower",
@@ -44,57 +44,13 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes/jonqueres.jpg",
+            "img": "./imagenes_originales/jonqueres.jpg",
             "p": "However, the City Council decided that the convent would be dismantled and moved stone by stone from its original location in the old town to the new expansion area: the Eixample. This decision marked the origin of the transfer. After several modifications (some necessary due to the damage from 1936–1939), the main nave has the appearance we see today."
           },
           {
             "type": "text-image",
             "p": "On December 7, 1942, a beautiful image of the Immaculate Conception, patron saint of the church, created by the sculptor Enric Monjo, was placed inside the small Neo-Gothic temple located at the center of the main altar.",
-            "img": "./imagenes/jonqueres.jpg"
-          }
-        ]
-      },
-      "architecture": {
-        "title": "Catalan Gothic in the Eixample",
-        "content": [
-          {
-            "type": "image-text",
-            "img": "./imagenes/gotico.jpg",
-            "p": "The history of the Parish of the Conception has many unique features that make it especially interesting from a historical, architectural, aesthetic, social, and religious perspective. The building of the current parish, located in the heart of the Eixample, is in fact a Gothic construction. Visitors often ask: 'What is a Gothic church and cloister doing in the middle of the Eixample grid?' The answer lies in a history of relocations and reconstructions that still surprise today."
-          }
-        ]
-      },
-      "place": {
-        "title": "A Privileged Location in the City",
-        "content": [
-          {
-            "type": "image-text",
-            "img": "./imagenes/ubicacion.jpg",
-            "p": "The Church of the Conception is located in one of the busiest areas of Barcelona: the southeast corner of the block formed by Aragón, Roger de Llúria, Valencia, and Bruc streets. It has two large façades facing Aragón and Roger de Llúria streets, making it highly visible and very present in the daily life of both locals and visitors."
-          },
-          {
-            "type": "text-image",
-            "p": "Since its construction began, the parish became the center of numerous religious and social activities in the new expansion area of Barcelona’s Eixample.",
-            "img": "./imagenes/ubicacion.jpg"
-          }
-        ]
-      },
-      "cloister": {
-        "title": "The Cloister",
-        "content": [
-          {
-            "type": "text-image",
-            "p": "Attached to the church, the monastery of Santa María de Jonqueres had a magnificent Gothic cloister, one of the largest in Barcelona. Its architectural elements—two superimposed galleries with slender columns and beautiful pointed arches—share similarities with the Gothic style of the Palau de la Generalitat.",
-            "img": "./imagenes/claustro.jpg"
-          },
-          {
-            "type": "text-image",
-            "img": "./imagenes/claustro.jpg",
-            "p": "Barcelona’s authorities also considered it important to preserve such a valuable structure. After some years, the cloister was attached to the church on adjacent parish land next to the main nave."
-          },
-          {
-            "type": "paragraph",
-            "p": "Together with the main nave, the cloister is the most characteristic symbol of the parish. It serves as the central hub for non-liturgical parish activities and offers visitors an oasis of peace in the middle of a busy commercial area. It is often used for open-air concerts, cultural events, and gatherings."
+            "img": "./imagenes_originales/jonqueres-23.jpg"
           }
         ]
       },
@@ -106,8 +62,60 @@
             "p": "We owe it to the historical and aesthetic sensitivity of our predecessors that all the architectural elements of the parish—the main nave, cloister, and bell tower—were preserved, even if relocated from their original site."
           },
           {
+            "type": "image",
+            "img": "./imagenes_originales/traslado piedra a piedra.png"
+          },
+          {
             "type": "paragraph",
             "p": "Documentation about the transfer is not very precise, but broadly speaking: the church was moved between 1869 and 1871; the cloister was dismantled and rebuilt between 1869 and 1888; and the bell tower of San Miguel was added in 1879. The original project is attributed to architect Josep Boixareu, and the initial construction was carried out by builder Jeroni Granell."
+          }
+        ]
+      },
+      "architecture": {
+        "title": "Catalan Gothic in the Eixample",
+        "content": [
+          {
+            "type": "image-text",
+            "img": "./imagenes_originales/gotico.jpg",
+            "p": "The history of the Parish of the Conception has many unique features that make it especially interesting from a historical, architectural, aesthetic, social, and religious perspective. The building of the current parish, located in the heart of the Eixample, is in fact a Gothic construction. Visitors often ask: 'What is a Gothic church and cloister doing in the middle of the Eixample grid?' The answer lies in a history of relocations and reconstructions that still surprise today."
+          },
+          {
+            "type": "image",
+            "img": "./imagenes_originales/gotico2.jpg"
+          }
+        ]
+      },
+      "place": {
+        "title": "A Privileged Location in the City",
+        "content": [
+          {
+            "type": "image-text",
+            "img": "./imagenes_originales/Basilica de la Purisima Concepcion.jpg",
+            "p": "The Church of the Conception is located in one of the busiest areas of Barcelona: the southeast corner of the block formed by Aragón, Roger de Llúria, Valencia, and Bruc streets. It has two large façades facing Aragón and Roger de Llúria streets, making it highly visible and very present in the daily life of both locals and visitors."
+          },
+          {
+            "type": "text-image",
+            "p": "Since its construction began, the parish became the center of numerous religious and social activities in the new expansion area of Barcelona’s Eixample.",
+            "img": "./imagenes_originales/ubicacion.png"
+          }
+        ]
+      },
+      "cloister": {
+        "title": "The Cloister",
+        "content": [
+          {
+            "type": "text-image",
+            "p": "Attached to the church, the monastery of Santa María de Jonqueres had a magnificent Gothic cloister, one of the largest in Barcelona. Its architectural elements—two superimposed galleries with slender columns and beautiful pointed arches—share similarities with the Gothic style of the Palau de la Generalitat.",
+            "img": "./imagenes_originales/claustro.jpg"
+          },
+          {
+            "type": "text-image",
+            "img": "./imagenes_originales/claustro2.jpg",
+            "p": "Barcelona’s authorities also considered it important to preserve such a valuable structure. After some years, the cloister was attached to the church on adjacent parish land next to the main nave."
+          },
+          {
+            "type": "paragraph",
+            "p": "Together with the main nave, the cloister is the most characteristic symbol of the parish. It serves as the central hub for non-liturgical parish activities and offers visitors an oasis of peace in the middle of a busy commercial area. It is often used for open-air concerts, cultural events, and gatherings."
           }
         ]
       },
@@ -116,7 +124,7 @@
         "content": [
           {
             "type": "image-text",
-            "img": "./imagenes/campanario.jpg",
+            "img": "./imagenes_originales/campanario.jpg",
             "p": "Near today’s Plaça de Sant Miquel, there was once a church that had to be demolished to allow urban expansion. Its Gothic bell tower was preserved and added to the Church of the Conception. Additional decorative elements were later added to its upper section, giving it the distinctive appearance we see today."
           }
         ]
