@@ -50,7 +50,7 @@
           {
             "type": "text-image",
             "p": "El 7 de diciembre de 1942 se colocó, en el interior del pequeño templo neogótico situado en el centro del altar mayor, una bella imagen de la Inmaculada Concepción, patrona del templo, realizada por el escultor Enric Monjo.",
-            "img": "./imagenes_originales/jonqueres-23.jpg"
+            "img": "./imagenes_originales/Jonqueres-23.jpg"
           }
         ]
       },
@@ -81,7 +81,7 @@
           },
           {
             "type": "image",
-            "img": "./imagenes_originales/gotico2.jpg"
+            "img": "./imagenes_originales/Gotico2.jpg"
           }
         ]
       },
@@ -106,11 +106,11 @@
           {
             "type": "text-image",
             "p": "Adosado a la iglesia, el monasterio de Santa María de Jonqueres tenía un magnífico claustro gótico, de los más grandes de Barcelona (junto con el de la catedral y el del monasterio de Pedralbes). Los elementos\narquitectónicos que\nconforman\neste claustro\n(dos\ngalerías\nsuperpuestas\nde\nestilizadas columnas y bellísimos\narcos apuntados)\ncomparten\nmuchos elementos con el gótico del Palacio de la Generalitat.",
-            "img": "./imagenes_originales/claustro.jpg"
+            "img": "./imagenes_originales/Claustro.jpg"
           },
           {
             "type": "text-image",
-            "img": "./imagenes_originales/claustro2.jpg",
+            "img": "./imagenes_originales/Claustro2.jpg",
             "p": "Las autoridades barcelonesas también\nconsideraron\nconveniente\nconservar un conjunto de tanto valor y, al cabo de unos años, el claustro de Santa\nMaría de\nJonqueres se adosó al cuerpo de la iglesia, en unos\nterrenos\nparroquiales\nanexos\nla nave\nprincipal."
           },
           {
