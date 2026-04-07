@@ -13,12 +13,12 @@ async function openHistoria() {
     if (!menuDiv) {
         container.innerHTML = '<div id="historiaMenu"></div>';
     }
-    
+
     if (!translations.history) {
         console.error("Translations not loaded yet");
         return;
     }
-    
+
     renderHistoriaMenu(container);
     updateLangUI();
 }
@@ -29,23 +29,24 @@ function showHistoria(sectionId) {
     const section = translations.history.sections[sectionId];
 
     container.innerHTML = `
-        <h1 class="text-5xl mb-10">${section.title}</h1>
+        <h1 class="text-5xl my-10">${section.title}</h1>
         ${section.content.map(block => {
         if (block.type === "paragraph")
-            return `<p class="mb-6">${block.p}</p>`;
+            return `<p class="mb-12">${block.p}</p>`;
 
         if (block.type === "text-image")
-            return `<div class="grid grid-cols-2 gap-8 mb-12">
+            return `<div class="grid grid-cols-2 gap-8 mb-12 items-center">
                     <p>${block.p}</p>
                     <img src="${block.img}" class="w-full">
                 </div>`;
 
         if (block.type === "image-text")
-            return `<div class="grid grid-cols-2 gap-8 mb-12">
+            return `<div class="grid grid-cols-2 gap-8 mb-12 items-center">
                     <img src="${block.img}" class="w-full">
                     <p>${block.p}</p>
                 </div>`;
+        if (block.type === "image")
+            return `<img src="${block.img}" class="w-full mb-12">`
     }).join("")}
     `;
-
 }

@@ -77,6 +77,7 @@ body {
     overflow: hidden;
     background: var(--bg-main);
     color: var(--text-main);
+    text-align: justify;
 }
 
 h1,
@@ -93,12 +94,13 @@ h3 {
 
 p,
 span {
-    font-size: 1.3rem;
     font-family: "Funnel Display", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
     letter-spacing: 2px;
+    font-size: clamp(1.3rem, 1.8rem, 2.2rem);
+
 }
 
 #videoContainer {
@@ -236,9 +238,12 @@ body {
 
 #historia-container {
     width: 100%;
-    height: 100%;           /* Fill parent */
-    overflow-y: auto;       /* Enable vertical scroll */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    height: 100%;
+    /* Fill parent */
+    overflow-y: auto;
+    /* Enable vertical scroll */
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on mobile */
     background: var(--bg-main);
     color: var(--text-main);
 }
@@ -384,4 +389,3 @@ div#langs {
     border-radius: 6px;
     padding: 6px 12px;
 }
-
