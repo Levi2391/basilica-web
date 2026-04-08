@@ -24,7 +24,7 @@ async function openHistoria() {
 }
 
 function showHistoria(sectionId) {
-    currentView = `historiaDetalle-${sectionId}`;
+    currentView = `history-detail-${sectionId}`;
     const container = document.getElementById("historia-container");
     const section = translations.history.sections[sectionId];
 

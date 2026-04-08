@@ -1,6 +1,7 @@
-  <!DOCTYPE html>
-  <html lang="es">
-  <head>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basílica de la Concepción</title>
@@ -12,139 +13,148 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300&family=Noto+Serif+Display:ital,wght@0,300;1,300&display=swap');
     </style>
-  </head>
-  
-  <body onclick="resetTimer()" ontouchstart="resetTimer()">
-  <div id="menuContainer"></div>
-  <div id="videoContainer">
-    <video id="mainVideo" autoplay loop muted playsinline>
-      <source src="video.mp4" type="video/mp4">
-    </video>
-  </div>
-  
-  <div id="panel">
-    <button class="backBtn shadow-md" onclick="goBack()"> &#8592; VOLVER</button>
-    <div id="historia-container" class="view-container px-12 py-8 text-white"></div>
-    <div id="actividadesContainer" class="view-container w-full h-full overflow-y-auto p-12 bg-black text-white"></div>
-    <div id="horarios-container" class="view-container w-full overflow-y-auto bg-black text-white"></div>
-    <div id="contact-container" class="view-container w-full overflow-y-auto bg-black text-white"></div>
-  </div>
-  
-  <script>
-      // --- Timer
-      let inactivityTimer;
-      let viewTracker = [];
-  
-      // --- Timer de inactividad ---
-      function resetTimer() {
-          clearTimeout(inactivityTimer);
-          
-          let timeout = 60000; // default 1 minute
-          
-          if (currentView === "history" || currentView === "history-detail") {
-              timeout = 300000; // 5 minutes for history pages
-          }
-          
-          inactivityTimer = setTimeout(goHome, 60000);
-      }
-      
-      // --- Eliminar todos los botones de historia ---
-      function removeHistoriaButtons() {
-          Array.from(document.getElementById("panel").getElementsByTagName("button"))
-              .forEach(b => {
-                  if (!b.classList.contains("backBtn")) b.remove();
-              });
-      }
-  
-      async function loadHistoriaMenuComponent() {
-          const res = await fetch("components/historia-menu.html");
-          console.log(res);
-          return await res.text();
-      }
-      
-      // --- HORARIOS ---
-      function openHorarios() {
-          removeHistoriaButtons();
-          hideAllViews();
-          document.getElementById("panel").style.display = "grid";
-          document.getElementById("mainVideo").pause();
-          loadHorariosHTML();
-      }
-  
-      // --- CONTACTO ---
-      function openContacto() {
-          removeHistoriaButtons();
-          hideAllViews();
-          document.getElementById("panel").style.display = "block";
-          document.getElementById("mainVideo").pause();
-          loadContactHTML();
-      }
-      
-      resetTimer();
-  
-      // --- Activities ---
-      function openActividades() {
-          removeHistoriaButtons();
-          hideAllViews();
-  
-          document.getElementById("panel").style.display = "block";
-          document.getElementById("mainVideo").pause();
-          
-          // 👇 Show container
-          const container = document.getElementById("actividadesContainer");
-          container.style.display = "block";
-          container.innerHTML = "Cargando...";
-  
-          container.innerHTML = `
+</head>
+
+<body onclick="resetTimer()" ontouchstart="resetTimer()">
+    <div id="menuContainer"></div>
+    <div id="videoContainer">
+        <video id="mainVideo" autoplay loop muted playsinline>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="panel">
+        <button class="backBtn shadow-md" onclick="goBack()"> &#8592; VOLVER</button>
+        <div id="historia-container" class="view-container px-12 py-8 text-white"></div>
+        <div id="actividadesContainer" class="view-container w-full h-full overflow-y-auto p-12 bg-black text-white">
+        </div>
+        <div id="horarios-container" class="view-container w-full overflow-y-auto bg-black text-white"></div>
+        <div id="contact-container" class="view-container w-full overflow-y-auto bg-black text-white"></div>
+    </div>
+
+    <script>
+        // --- Timer
+        let inactivityTimer;
+        let viewTracker = [];
+
+        // --- Timer de inactividad ---
+        function resetTimer() {
+            clearTimeout(inactivityTimer);
+
+            let timeout = 60000; // default 1 minute
+
+            if (currentView === "history") {
+                timeout = 120000; // 2 minutes for history pages
+            }
+
+            if (
+                currentView?.startsWith("history-detail")
+            ) {
+                timeout = 300000; // 5 minutes for history pages
+            }
+
+            inactivityTimer = setTimeout(goHome, timeout);
+            console.log("Current view:", currentView, "Timeout:", timeout);
+        }
+
+        // --- Eliminar todos los botones de historia ---
+        function removeHistoriaButtons() {
+            Array.from(document.getElementById("panel").getElementsByTagName("button"))
+                .forEach(b => {
+                    if (!b.classList.contains("backBtn")) b.remove();
+                });
+        }
+
+        async function loadHistoriaMenuComponent() {
+            const res = await fetch("components/historia-menu.html");
+            console.log(res);
+            return await res.text();
+        }
+
+        // --- HORARIOS ---
+        function openHorarios() {
+            removeHistoriaButtons();
+            hideAllViews();
+            document.getElementById("panel").style.display = "grid";
+            document.getElementById("mainVideo").pause();
+            loadHorariosHTML();
+        }
+
+        // --- CONTACTO ---
+        function openContacto() {
+            removeHistoriaButtons();
+            hideAllViews();
+            document.getElementById("panel").style.display = "block";
+            document.getElementById("mainVideo").pause();
+            loadContactHTML();
+        }
+
+        resetTimer();
+
+        // --- Activities ---
+        function openActividades() {
+            removeHistoriaButtons();
+            hideAllViews();
+
+            document.getElementById("panel").style.display = "block";
+            document.getElementById("mainVideo").pause();
+
+            // 👇 Show container
+            const container = document.getElementById("actividadesContainer");
+            container.style.display = "block";
+            container.innerHTML = "Cargando...";
+
+            container.innerHTML = `
           <h1 class="text-6xl font-bold mb-12 text-center">
             Actividades y Eventos
           </h1>
         `;
-  
-          currentView = "actividades";
-  
-          loadActividadesHTML();
-          container.classList.remove("hidden");
-      }
-  
-      function toggleTheme() {
-          const current = document.body.getAttribute("data-theme");
-          const newTheme = current === "dark" ? "light" : "dark";
-  
-          document.body.setAttribute("data-theme", newTheme);
-          localStorage.setItem("theme", newTheme);
-  
-          updateThemeIcon(newTheme);
-      }
-  
-      // Set correct theme icon 
-      function updateThemeIcon(theme) {
-          const btn = document.getElementById("themeIcon");
-          if (!btn) return;
-  
-          btn.classList.add("rotating");
-  
-          setTimeout(() => {
-              btn.textContent = theme === "dark" ? "☀️" : "🌙";
-              btn.classList.remove("rotating");
-          }, 150);
-      }
-  
-      // Apply saved theme on load
-      (function () {
-          const savedTheme = localStorage.getItem("theme") || "dark";
-          document.body.setAttribute("data-theme", savedTheme);
-  
-          // 👇 wait a bit because menu is loaded via fetch
-          setTimeout(() => {
-              updateThemeIcon(savedTheme);
-          }, 100);
-      })();
-  </script>
-  <script src="./js/languages.js"></script>
-  <script src="./js/ui.js"></script>
-  <script src="./js/historia.js"></script>
-  <script src="./js/navigation.js"></script>
-  <script src="./js/app.js"></script>
-  </body>
-  </html>
+
+            currentView = "actividades";
+
+            loadActividadesHTML();
+            container.classList.remove("hidden");
+        }
+
+        function toggleTheme() {
+            const current = document.body.getAttribute("data-theme");
+            const newTheme = current === "dark" ? "light" : "dark";
+
+            document.body.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+
+            updateThemeIcon(newTheme);
+        }
+
+        // Set correct theme icon 
+        function updateThemeIcon(theme) {
+            const btn = document.getElementById("themeIcon");
+            if (!btn) return;
+
+            btn.classList.add("rotating");
+
+            setTimeout(() => {
+                btn.textContent = theme === "dark" ? "☀️" : "🌙";
+                btn.classList.remove("rotating");
+            }, 150);
+        }
+
+        // Apply saved theme on load
+        (function () {
+            const savedTheme = localStorage.getItem("theme") || "dark";
+            document.body.setAttribute("data-theme", savedTheme);
+
+            // 👇 wait a bit because menu is loaded via fetch
+            setTimeout(() => {
+                updateThemeIcon(savedTheme);
+            }, 100);
+        })();
+    </script>
+    <script src="./js/languages.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/historia.js"></script>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
