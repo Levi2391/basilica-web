@@ -35,13 +35,13 @@ function showHistoria(sectionId) {
             return `<p class="mb-12">${block.p}</p>`;
 
         if (block.type === "text-image")
-            return `<div class="grid grid-cols-2 gap-8 mb-12 items-center">
+            return `<div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 items-center">
                     <p>${block.p}</p>
                     <img src="${block.img}" class="w-full">
                 </div>`;
 
         if (block.type === "image-text")
-            return `<div class="grid grid-cols-2 gap-8 mb-12 items-center">
+            return `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8 mb-12 items-center">
                     <img src="${block.img}" class="w-full">
                     <p>${block.p}</p>
                 </div>`;

@@ -239,11 +239,8 @@ body {
 #historia-container {
     width: 100%;
     height: 100%;
-    /* Fill parent */
     overflow-y: auto;
-    /* Enable vertical scroll */
     -webkit-overflow-scrolling: touch;
-    /* Smooth scrolling on mobile */
     background: var(--bg-main);
     color: var(--text-main);
 }
@@ -252,7 +249,7 @@ body {
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    padding: 3rem;
+
     background: var(--bg-main);
     color: var(--text-main);
     display: none;
@@ -276,19 +273,48 @@ body {
 
 /* Main Menu */
 .menu-bar {
-    height: clamp(80px, 9vh, 160px);
+    min-height: clamp(60px, 8vh, 160px);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     padding-right: 1.8rem;
-
     background: var(--bg-card);
     border-top: 2px solid var(--border);
+}
+
+#mobileMenu {
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    transition:
+        max-height 0.4s ease-in-out,
+        opacity 0.3s ease-in-out,
+        transform 0.3s ease-in-out;
+}
+
+.menu-collapsed {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.menu-open {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#mobileMenu button {
+    width: 100%;
+    padding: 10px;
 }
 
 .menu-left {
     display: flex;
     align-items: center;
+    transition: all 0.2s ease;
 }
 
 .menu-logo {
@@ -299,28 +325,27 @@ body {
 }
 
 .menu-buttons {
-    display: flex;
-    gap: clamp(1rem, 1.2rem, 1.4rem);
+    gap: 0.5rem;
+    width: 100%;
 }
 
-.menu-buttons button {
-    font-size: clamp(16px, 2.2vw, 28px);
-    padding: 5px 10px;
+.menu-btn {
+    width: 100%;
+    text-align: center;
+    font-size: clamp(14px, 2.2vw, 28px);
+    padding: 10px;
     border: none;
     cursor: pointer;
     background: var(--text-accent);
     color: white;
     border-radius: 5px;
     font-family: "Noto Serif Display", serif;
-    font-optical-sizing: auto;
     font-weight: bold;
-    font-variation-settings: "wdth" 100;
     letter-spacing: 2px;
-
     transition: all 0.2s ease;
 }
 
-.menu-buttons button:hover {
+.menu-btn:hover {
     background: var(--primary-strong);
 }
 
@@ -342,7 +367,6 @@ body {
 }
 
 /*Historia Section*/
-
 .historiaBtn {
     display: flex;
     vertical-align: middle;
@@ -388,4 +412,37 @@ div#langs {
     font-weight: bold;
     border-radius: 6px;
     padding: 6px 12px;
+}
+
+@media (min-width: 640px) {
+    .menu-buttons {
+        width: auto;
+        gap: 1.2rem;
+    }
+
+    .menu-buttons button {
+        width: fit-content;
+    }
+
+    .menu-btn {
+        width: auto;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    p,
+    span {
+        font-size: clamp(1.1rem, 3.6vw, 2rem);
+    }
+
+    .card-title {
+        font-size: clamp(1.4rem, 4vw, 2.5rem);
+    }
+
+    .menu-btn {
+
+        font-size: clamp(16px, 3.2vw, 22px);
+    }
 }
