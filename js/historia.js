@@ -41,7 +41,7 @@ function showHistoria(sectionId) {
                 </div>`;
 
         if (block.type === "image-text")
-            return `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8 mb-12 items-center">
+            return `<div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 items-center">
                     <img src="${block.img}" class="w-full">
                     <p>${block.p}</p>
                 </div>`;
