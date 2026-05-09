@@ -3,27 +3,12 @@
     "title": "Historia",
     "intro": "Una iglesia que viajó en el tiempo. Lo que hoy ves en el Eixample… no nació aquí. Descubre cómo este templo gótico fue trasladado piedra a piedra en el siglo XIX.",
     "menu": [
-      {
-        "id": "origin",
-        "label": "Origen",
-        "icon": "icons/jonqueres.png"
-      },
-      {
-        "id": "transfer",
-        "label": "El traslado",
-        "icon": "icons/traslado.png"
-      },
-      {
-        "id": "cloister",
-        "label": "El claustro",
-        "icon": "icons/claustro.png"
-      },
-      {
-        "id": "bell-tower",
-        "label": "El campanario",
-        "icon": "icons/campanario.png"
-      }
+      { "id": "origin", "label": "Origen", "icon": "icons/jonqueres.png" },
+      { "id": "transfer", "label": "El traslado", "icon": "icons/traslado.png" },
+      { "id": "cloister", "label": "El claustro", "icon": "icons/claustro.png" },
+      { "id": "bell-tower", "label": "El campanario", "icon": "icons/campanario.png" }
     ],
+
     "sections": {
       "origin": {
         "title": "Antes de estar aquí…",
@@ -39,19 +24,24 @@
           "items": [
             {
               "id": "contexto",
-              "title": "Contexto histórico",
-              "content": "El monasterio de Jonqueres pertenecía a la Orden de Santiago, una orden religiosa y militar fundada en el siglo XII. La comunidad llegó a Barcelona procedente de Sabadell y se estableció en la ciudad medieval. Las religiosas, conocidas como comendadoras o freiras santiaguistas, pertenecían en su mayoría a familias nobles. La vida en el monasterio combinaba normas religiosas con cierta flexibilidad, educación para novicias y organización comunitaria. En algunos casos excepcionales, incluso se permitía el matrimonio. Fue uno de los monasterios femeninos más importantes de la Barcelona medieval."
+              "title": "Saber más",
+              "content": "El monasterio de Jonqueres pertenecía a la Orden de Santiago, una orden religiosa y militar del siglo XII. Las religiosas, llamadas comendadoras, eran en su mayoría de familias nobles. Vivían en comunidad con cierta flexibilidad, con educación para novicias y organización propia. Fue uno de los monasterios femeninos más importantes de la Barcelona medieval."
             }
           ]
         }
       },
+
       "transfer": {
         "title": "Cuando Barcelona cambió para siempre",
         "saber_mas_button": true,
         "content": [
           {
             "type": "paragraph",
-            "p": "En el siglo XIX, la ciudad creció más allá de sus murallas, dando lugar al Eixample. Para permitir esta expansión, el antiguo monasterio fue derribado. Pero ocurrió algo extraordinario: entre 1869 y 1871, la iglesia fue desmontada y reconstruida aquí, piedra a piedra."
+            "p": "En el siglo XIX, la ciudad creció más allá de sus murallas, dando lugar al Eixample. El antiguo monasterio fue derribado, pero la iglesia fue desmontada y reconstruida piedra a piedra entre 1869 y 1871."
+          },
+          {
+            "type": "image",
+            "img": "./imagenes_originales/traslado piedra a piedra.png"
           }
         ],
         "saber_mas": {
@@ -59,48 +49,56 @@
           "items": [
             {
               "id": "transformacion",
-              "title": "Transformación urbana",
-              "content": "En el siglo XIX, Barcelona vivió una profunda transformación con el derribo de las murallas y la expansión del Eixample. A esto se sumó la desamortización de Mendizábal, que provocó la expropiación de numerosos conventos. El monasterio de Jonqueres estaba condenado al derribo, pero la Comisión de Monumentos y la Academia de Bellas Artes impulsaron su traslado piedra a piedra. La nave principal fue inaugurada entre 1869 y 1871, mientras el conjunto se completó posteriormente."
+              "title": "Saber más",
+              "content": "Durante el siglo XIX, Barcelona vivió la expansión del Eixample y la desamortización de Mendizábal, que afectó a muchos conventos. El monasterio de Jonqueres fue trasladado gracias a la Comisión de Monumentos y la Academia de Bellas Artes. La nave principal se inauguró entre 1869 y 1871."
             }
           ]
         }
       },
+
       "cloister": {
         "title": "Un jardín medieval en la ciudad",
         "saber_mas_button": true,
         "content": [
           {
-            "type": "paragraph",
-            "p": "El claustro formaba parte del monasterio original de Jonqueres. Fue trasladado y reconstruido entre 1869 y 1888, conservando su estructura gótica. Hoy es uno de los espacios más emblemáticos del conjunto, un lugar de calma en pleno centro de Barcelona."
+            "type": "text-image",
+            "p": "El claustro formaba parte del monasterio original de Jonqueres. Fue trasladado entre 1869 y 1888 y conserva su estructura gótica.",
+            "img": "./imagenes_originales/Claustro.jpg"
+          },
+          {
+            "type": "image",
+            "img": "./imagenes_originales/Claustro2.jpg"
           }
         ],
         "saber_mas": {
           "type": "accordion",
           "items": [
             {
-              "id": "vida_monastica",
-              "title": "Vida monástica",
-              "content": "El claustro era el centro de la vida cotidiana del monasterio: un espacio de silencio, oración y convivencia. El original era aproximadamente el doble del actual, pero durante el traslado solo pudo conservarse una parte. Aun así, sus galerías y arcos permiten imaginar la grandeza del monasterio medieval original."
+              "id": "vida",
+              "title": "Saber más",
+              "content": "El claustro era el centro de la vida monástica: oración, silencio y convivencia. El original era mucho mayor, pero solo se conservó una parte. Aun así, mantiene la esencia del monasterio medieval."
             }
           ]
         }
       },
+
       "bell-tower": {
         "title": "Una torre con otra historia",
         "saber_mas_button": true,
         "content": [
           {
-            "type": "paragraph",
-            "p": "El campanario no pertenecía originalmente a este conjunto. Procede de la antigua iglesia de Sant Miquel y fue añadido en 1879, completando el edificio actual."
+            "type": "image-text",
+            "img": "./imagenes_originales/campanario.jpg",
+            "p": "El campanario procede de la antigua iglesia de Sant Miquel y fue añadido en 1879."
           }
         ],
         "saber_mas": {
           "type": "accordion",
           "items": [
             {
-              "id": "origen_campanario",
-              "title": "Origen del campanario",
-              "content": "El campanario procede de la antigua parroquia de Sant Miquel, situada cerca de la actual Plaça Sant Jaume. Cuando aquella iglesia fue demolida, su campanario se conservó y posteriormente fue incorporado a este conjunto en 1879. Esta combinación de elementos de distintos edificios históricos convierte la basílica en un conjunto arquitectónico único en Barcelona."
+              "id": "origen",
+              "title": "Saber más",
+              "content": "El campanario de Sant Miquel fue conservado tras la demolición de la iglesia original cerca de la Plaça Sant Jaume y posteriormente integrado en este conjunto en 1879."
             }
           ]
         }
