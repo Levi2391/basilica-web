@@ -1,108 +1,160 @@
-{
-  "history": {
-    "title": "Historia",
-    "intro": "Una iglesia que viajó en el tiempo. Lo que hoy ves en el Eixample… no nació aquí. Descubre cómo este templo gótico fue trasladado piedra a piedra en el siglo XIX.",
-    "menu": [
-      { "id": "origin", "label": "Origen", "icon": "icons/jonqueres.png" },
-      { "id": "transfer", "label": "El traslado", "icon": "icons/traslado.png" },
-      { "id": "cloister", "label": "El claustro", "icon": "icons/claustro.png" },
-      { "id": "bell-tower", "label": "El campanario", "icon": "icons/campanario.png" }
-    ],
+<!DOCTYPE html>
+<html lang="es">
 
-    "sections": {
-      "origin": {
-        "title": "Antes de estar aquí…",
-        "saber_mas_button": true,
-        "content": [
-          {
-            "type": "paragraph",
-            "p": "Esta iglesia formaba parte del monasterio de Santa Maria de Jonqueres, en la Barcelona medieval. Se encontraba junto a las antiguas murallas, cerca de la actual plaza de Urquinaona."
-          }
-        ],
-        "saber_mas": {
-          "type": "accordion",
-          "items": [
-            {
-              "id": "contexto",
-              "title": "Saber más",
-              "content": "El monasterio de Jonqueres pertenecía a la Orden de Santiago, una orden religiosa y militar del siglo XII. Las religiosas, llamadas comendadoras, eran en su mayoría de familias nobles. Vivían en comunidad con cierta flexibilidad, con educación para novicias y organización propia. Fue uno de los monasterios femeninos más importantes de la Barcelona medieval."
-            }
-          ]
-        }
-      },
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basílica de la Concepción</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/activities.js"></script>
+    <script src="./js/horarios.js"></script>
+    <script src="./js/contact.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300&family=Noto+Serif+Display:ital,wght@0,300;1,300&display=swap');
+    </style>
+</head>
 
-      "transfer": {
-        "title": "Cuando Barcelona cambió para siempre",
-        "saber_mas_button": true,
-        "content": [
-          {
-            "type": "paragraph",
-            "p": "En el siglo XIX, la ciudad creció más allá de sus murallas, dando lugar al Eixample. El antiguo monasterio fue derribado, pero la iglesia fue desmontada y reconstruida piedra a piedra entre 1869 y 1871."
-          },
-          {
-            "type": "image",
-            "img": "./imagenes_originales/traslado piedra a piedra.png"
-          }
-        ],
-        "saber_mas": {
-          "type": "accordion",
-          "items": [
-            {
-              "id": "transformacion",
-              "title": "Saber más",
-              "content": "Durante el siglo XIX, Barcelona vivió la expansión del Eixample y la desamortización de Mendizábal, que afectó a muchos conventos. El monasterio de Jonqueres fue trasladado gracias a la Comisión de Monumentos y la Academia de Bellas Artes. La nave principal se inauguró entre 1869 y 1871."
-            }
-          ]
-        }
-      },
+<body onclick="resetTimer()" ontouchstart="resetTimer()">
+    <div id="menuContainer"></div>
+    <div id="videoContainer">
+        <video id="mainVideo" autoplay loop muted playsinline preload="auto">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </div>
 
-      "cloister": {
-        "title": "Un jardín medieval en la ciudad",
-        "saber_mas_button": true,
-        "content": [
-          {
-            "type": "text-image",
-            "p": "El claustro formaba parte del monasterio original de Jonqueres. Fue trasladado entre 1869 y 1888 y conserva su estructura gótica.",
-            "img": "./imagenes_originales/Claustro.jpg"
-          },
-          {
-            "type": "image",
-            "img": "./imagenes_originales/Claustro2.jpg"
-          }
-        ],
-        "saber_mas": {
-          "type": "accordion",
-          "items": [
-            {
-              "id": "vida",
-              "title": "Saber más",
-              "content": "El claustro era el centro de la vida monástica: oración, silencio y convivencia. El original era mucho mayor, pero solo se conservó una parte. Aun así, mantiene la esencia del monasterio medieval."
-            }
-          ]
-        }
-      },
+    <div id="panel">
+        <button class="backBtn shadow-md" onclick="goBack()"> &#8592; VOLVER</button>
+        <div id="historia-container" class="view-container px-5 md:px-12 py-8 text-white"></div>
+        <div id="actividadesContainer"
+            class="view-container w-full h-full overflow-y-auto px-6 md:px-12 py-10 bg-black text-white">
+        </div>
+        <div id="horarios-container" class="view-container w-full overflow-y-auto bg-black text-white"></div>
+        <div id="contact-container" class="view-container w-full overflow-y-auto bg-black text-white"></div>
+    </div>
 
-      "bell-tower": {
-        "title": "Una torre con otra historia",
-        "saber_mas_button": true,
-        "content": [
-          {
-            "type": "image-text",
-            "img": "./imagenes_originales/campanario.jpg",
-            "p": "El campanario procede de la antigua iglesia de Sant Miquel y fue añadido en 1879."
-          }
-        ],
-        "saber_mas": {
-          "type": "accordion",
-          "items": [
-            {
-              "id": "origen",
-              "title": "Saber más",
-              "content": "El campanario de Sant Miquel fue conservado tras la demolición de la iglesia original cerca de la Plaça Sant Jaume y posteriormente integrado en este conjunto en 1879."
+    <script>
+        // --- Timer
+        let inactivityTimer;
+        let viewTracker = [];
+
+        // --- Timer de inactividad ---
+        function resetTimer() {
+            clearTimeout(inactivityTimer);
+
+            let timeout = 60000; // default 1 minute
+
+            if (currentView === "history") {
+                timeout = 120000; // 2 minutes for history pages
             }
-          ]
+
+            if (
+                currentView?.startsWith("history-detail")
+            ) {
+                timeout = 300000; // 5 minutes for history pages
+            }
+
+            inactivityTimer = setTimeout(goHome, timeout);
         }
-      }
-    }
-  }
-}
+
+        // --- Eliminar todos los botones de historia ---
+        function removeHistoriaButtons() {
+            Array.from(document.getElementById("panel").getElementsByTagName("button"))
+                .forEach(b => {
+                    if (!b.classList.contains("backBtn")) b.remove();
+                });
+        }
+
+        async function loadHistoriaMenuComponent() {
+            const res = await fetch("components/historia-menu.html");
+            console.log(res);
+            return await res.text();
+        }
+
+        // --- HORARIOS ---
+        function openHorarios() {
+            removeHistoriaButtons();
+            hideAllViews();
+            document.getElementById("panel").style.display = "grid";
+            document.getElementById("mainVideo").pause();
+            loadHorariosHTML();
+        }
+
+        // --- CONTACTO ---
+        function openContacto() {
+            removeHistoriaButtons();
+            hideAllViews();
+            document.getElementById("panel").style.display = "block";
+            document.getElementById("mainVideo").pause();
+            loadContactHTML();
+        }
+
+        resetTimer();
+
+        // --- Activities ---
+        function openActividades() {
+            removeHistoriaButtons();
+            hideAllViews();
+
+            document.getElementById("panel").style.display = "block";
+            document.getElementById("mainVideo").pause();
+
+            // 👇 Show container
+            const container = document.getElementById("actividadesContainer");
+            container.style.display = "block";
+            container.innerHTML = "Cargando...";
+
+            container.innerHTML = `
+          <h1 class="text-6xl font-bold mb-12 text-center">
+            Actividades y Eventos
+          </h1>
+        `;
+
+            currentView = "actividades";
+
+            loadActividadesHTML();
+            container.classList.remove("hidden");
+        }
+
+        function toggleTheme() {
+            const current = document.body.getAttribute("data-theme");
+            const newTheme = current === "dark" ? "light" : "dark";
+
+            document.body.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+
+            updateThemeIcon(newTheme);
+        }
+
+        // Set correct theme icon 
+        function updateThemeIcon(theme) {
+            const btn = document.getElementById("themeIcon");
+            if (!btn) return;
+
+            btn.classList.add("rotating");
+
+            setTimeout(() => {
+                btn.textContent = theme === "dark" ? "☀️" : "🌙";
+                btn.classList.remove("rotating");
+            }, 150);
+        }
+
+        // Apply saved theme on load
+        (function () {
+            const savedTheme = localStorage.getItem("theme") || "dark";
+            document.body.setAttribute("data-theme", savedTheme);
+
+            // 👇 wait a bit because menu is loaded via fetch
+            setTimeout(() => {
+                updateThemeIcon(savedTheme);
+            }, 100);
+        })();
+    </script>
+    <script src="./js/languages.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/historia.js"></script>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
