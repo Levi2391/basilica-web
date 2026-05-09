@@ -11,7 +11,6 @@ async function openHistoria() {
         return;
     }
 
-    // 🔥 1. Pintamos título + intro primero
     const { title, intro } = translations.history;
 
     container.innerHTML = `
@@ -28,21 +27,18 @@ async function openHistoria() {
         <div id="historiaMenu"></div>
     `;
 
-    // 🔥 2. Insertamos el menú HTML dentro del contenedor
     const res = await fetch("components/historia-menu.html");
     const menuHTML = await res.text();
 
     const menuDiv = container.querySelector("#historiaMenu");
+
     if (menuDiv) {
         menuDiv.innerHTML = menuHTML;
     } else {
-        console.warn("historiaMenu container not found");
         container.innerHTML += menuHTML;
     }
 
-    // 🔥 3. Render lógico del menú (clicks, etc.)
     renderHistoriaMenu(container);
-
     updateLangUI();
 }
 
@@ -69,10 +65,12 @@ function showHistoria(sectionId) {
 
         ${section.content.map(block => {
 
+            // 📌 Texto simple
             if (block.type === "paragraph") {
                 return `<p class="mb-12">${block.p}</p>`;
             }
 
+            // 📌 Texto + imagen
             if (block.type === "text-image") {
                 return `
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 items-center">
@@ -82,6 +80,7 @@ function showHistoria(sectionId) {
                 `;
             }
 
+            // 📌 Imagen + texto
             if (block.type === "image-text") {
                 return `
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 items-center">
@@ -91,11 +90,31 @@ function showHistoria(sectionId) {
                 `;
             }
 
+            // 📌 Imagen sola
             if (block.type === "image") {
                 return `<img src="${block.img}" class="w-full mb-12">`;
             }
 
+            // 📌 🔥 ACCORDION (NUEVO)
+            if (block.type === "accordion") {
+                return `
+                    <div class="mb-12">
+                        ${block.items.map(item => `
+                            <details class="border border-gray-300 rounded-lg p-4 mb-3">
+                                <summary class="cursor-pointer font-bold text-lg">
+                                    ${item.title}
+                                </summary>
+                                <div class="mt-3 text-base leading-relaxed">
+                                    ${item.content}
+                                </div>
+                            </details>
+                        `).join("")}
+                    </div>
+                `;
+            }
+
             return "";
+
         }).join("")}
     `;
 }
