@@ -55,10 +55,6 @@ function showHistoria(sectionId) {
     }
 
     container.innerHTML = `
-        <button class="backBtn shadow-md mb-6" onclick="openHistoria()">
-            ← VOLVER
-        </button>
-
         <h1 class="text-5xl my-10">
             ${section.title}
         </h1>
@@ -75,7 +71,7 @@ function showHistoria(sectionId) {
                 return `
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 items-center">
                         <p>${block.p}</p>
-                        <img src="${block.img}" class="w-full">
+                        <img src="${block.img}" class="w-full rounded-lg">
                     </div>
                 `;
             }
@@ -84,7 +80,7 @@ function showHistoria(sectionId) {
             if (block.type === "image-text") {
                 return `
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 items-center">
-                        <img src="${block.img}" class="w-full">
+                        <img src="${block.img}" class="w-full rounded-lg">
                         <p>${block.p}</p>
                     </div>
                 `;
@@ -92,19 +88,25 @@ function showHistoria(sectionId) {
 
             // 📌 Imagen sola
             if (block.type === "image") {
-                return `<img src="${block.img}" class="w-full mb-12">`;
+                return `
+                    <img 
+                        src="${block.img}" 
+                        class="w-full mb-12 rounded-lg"
+                    >
+                `;
             }
 
-            // 📌 🔥 ACCORDION (NUEVO)
+            // 📌 Accordion
             if (block.type === "accordion") {
                 return `
                     <div class="mb-12">
                         ${block.items.map(item => `
-                            <details class="border border-gray-300 rounded-lg p-4 mb-3">
+                            <details class="border border-gray-300 rounded-lg p-4 mb-4 bg-white/5">
                                 <summary class="cursor-pointer font-bold text-lg">
                                     ${item.title}
                                 </summary>
-                                <div class="mt-3 text-base leading-relaxed">
+
+                                <div class="mt-4 leading-relaxed">
                                     ${item.content}
                                 </div>
                             </details>
