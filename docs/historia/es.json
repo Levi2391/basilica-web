@@ -34,26 +34,41 @@
         "icon": "icons/campanario.png"
       }
     ],
-    "sections": {
-      "origin": {
-        "title": "EL MONASTERIO DE SANTA MARÍA DE JONQUERES",
-        "content": [
+   "sections": {
+  "origin": {
+    "title": "EL MONASTERIO DE SANTA MARÍA DE JONQUERES",
+    "content": [
+      {
+        "type": "paragraph",
+        "p": "Un ansiado permiso real permitió derribar las murallas..."
+      },
+
+      {
+        "type": "image-text",
+        "img": "./imagenes_originales/jonqueres.jpg",
+        "p": "El Ayuntamiento decidió..."
+      },
+
+      {
+        "type": "text-image",
+        "p": "El 7 de diciembre de 1942 se colocó...",
+        "img": "./imagenes_originales/Jonqueres-23.jpg"
+      },
+
+      {
+        "type": "accordion",
+        "items": [
           {
-            "type": "paragraph",
-            "p": "Un ansiado permiso real permitió derribar las murallas que cerraban la ciudad antigua y abrió la posibilidad de que la ciudad se expandiera hacia lo que hoy es el Eixample. Al lado de la antigua muralla barcelonesa, muy cerca de donde ahora se encuentra la plaza de Urquinaona, se levantaba el convento de Santa María de Jonqueres, un bello templo gótico, con un magnífico claustro de considerables dimensiones.\nLa necesaria expansión de Barcelona hizo\nimprescindible que este conjunto arquitectónico se demoliera hacia\nfinales del siglo XIX."
-          },
-          {
-            "type": "image-text",
-            "img": "./imagenes_originales/jonqueres.jpg",
-            "p": "El Ayuntamiento decidió, sin\nembargo, que el convento se\ndesmontaría y trasladaría piedra por piedra desde su emplazamiento\noriginal (en el barrio viejo) hacia la\nnueva\nzona\nde expansión\neconómica\ndemográfica:\nel\nEixample. Esta decisión es el origen del traslado.\nTras\nalgunas\nmodificaciones\n(algunas\nimprescindibles después de los\ndestrozos de 1936-1939), la nave principal presenta el aspecto que hoy vemos."
-          },
-          {
-            "type": "text-image",
-            "p": "El 7 de diciembre de 1942 se colocó, en el interior del pequeño templo neogótico situado en el centro del altar mayor, una bella imagen de la Inmaculada Concepción, patrona del templo, realizada por el escultor Enric Monjo.",
-            "img": "./imagenes_originales/Jonqueres-23.jpg"
+            "id": "contexto",
+            "title": "Saber más",
+            "content": "El monasterio de Jonqueres pertenecía a la Orden de Santiago, una orden religiosa y militar del siglo XII. Las religiosas, llamadas comendadoras, eran en su mayoría de familias nobles."
           }
         ]
-      },
+      }
+
+    ]
+  }
+},
       "transfer": {
         "title": "El Translado",
         "content": [
