@@ -8,7 +8,27 @@
         "label": "Origen del templo",
         "icon": "icons/jonqueres.png"
       }
-    ]
+    ],
+    "sections": {
+      "origin": {
+        "title": "EL MONASTERIO DE SANTA MARÍA DE JONQUERES",
+        "content": [
+          {
+            "type": "paragraph",
+            "p": "Un ansiado permiso real permitió derribar las murallas que cerraban la ciudad antigua y abrió la posibilidad de que la ciudad se expandiera hacia lo que hoy es el Eixample. Al lado de la antigua muralla barcelonesa, muy cerca de donde ahora se encuentra la plaza de Urquinaona, se levantaba el convento de Santa María de Jonqueres, un bello templo gótico, con un magnífico claustro de considerables dimensiones.\nLa necesaria expansión de Barcelona hizo imprescindible que este conjunto arquitectónico se demoliera hacia finales del siglo XIX."
+          },
+          {
+            "type": "image-text",
+            "img": "./imagenes_originales/jonqueres.jpg",
+            "p": "El Ayuntamiento decidió, sin embargo, que el convento se desmontaría y trasladaría piedra por piedra desde su emplazamiento original (en el barrio viejo) hacia la nueva zona de expansión económica y demográfica: el Eixample. Esta decisión es el origen del traslado.\nTras algunas modificaciones (algunas imprescindibles después de los destrozos de 1936-1939), la nave principal presenta el aspecto que hoy vemos."
+          },
+          {
+            "type": "text-image",
+            "p": "El 7 de diciembre de 1942 se colocó, en el interior del pequeño templo neogótico situado en el centro del altar mayor, una bella imagen de la Inmaculada Concepción, patrona del templo, realizada por el escultor Enric Monjo.",
+            "img": "./imagenes_originales/Jonqueres-23.jpg"
+          }
+        ]
+      }
+    }
   }
 }
-
