@@ -27,15 +27,18 @@
             "p": "El 7 de diciembre de 1942 se colocó, en el interior del pequeño templo neogótico situado en el centro del altar mayor, una bella imagen de la Inmaculada Concepción, patrona del templo, realizada por el escultor Enric Monjo.",
             "img": "./imagenes_originales/Jonqueres-23.jpg"
           },
-        {
-    "type": "accordion",
-    "title": "Más información",
-    "items": [
-      {
-        "question": "¿Dónde estaba ubicado el convento originalmente?",
-        "answer": "..."
+          {
+            "type": "accordion",
+            "title": "Más información",
+            "items": [
+              {
+                "question": "¿Dónde estaba ubicado el convento originalmente?",
+                "answer": "..."
+              }
+            ]
+          }
+        ]
       }
-    ]
+    }
   }
-]
 }
