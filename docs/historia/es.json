@@ -1,6 +1,6 @@
 {
   "history": {
-    "title": "Una iglesia que viajó en el tiempo2",
+    "title": "Una iglesia que viajó en el tiempo",
     "intro": "Lo que hoy ves en el Eixample… no nació aquí.\nDescubre cómo este templo gótico fue trasladado piedra a piedra en el siglo XIX.",
     "menu": [
       {
@@ -11,16 +11,16 @@
     ],
     "sections": {
       "origin": {
-        "title": "EL MONASTERIO DE SANTA MARÍA DE JONQUERES",
+        "title": "Antes de estar aquí…",
         "content": [
           {
             "type": "paragraph",
-            "p": "Un ansiado permiso real permitió derribar las murallas que cerraban la ciudad antigua y abrió la posibilidad de que la ciudad se expandiera hacia lo que hoy es el Eixample. Al lado de la antigua muralla barcelonesa, muy cerca de donde ahora se encuentra la plaza de Urquinaona, se levantaba el convento de Santa María de Jonqueres, un bello templo gótico, con un magnífico claustro de considerables dimensiones.\nLa necesaria expansión de Barcelona hizo imprescindible que este conjunto arquitectónico se demoliera hacia finales del siglo XIX."
+            "p": "Esta iglesia formaba parte del monasterio de Santa Maria de Jonqueres, en la Barcelona medieval."
           },
           {
             "type": "image-text",
             "img": "./imagenes_originales/jonqueres.jpg",
-            "p": "El Ayuntamiento decidió, sin embargo, que el convento se desmontaría y trasladaría piedra por piedra desde su emplazamiento original (en el barrio viejo) hacia la nueva zona de expansión económica y demográfica: el Eixample. Esta decisión es el origen del traslado.\nTras algunas modificaciones (algunas imprescindibles después de los destrozos de 1936-1939), la nave principal presenta el aspecto que hoy vemos."
+            "p": "Se encontraba junto a las antiguas murallas, cerca de la actual plaza de Urquinaona."
           },
           {
             "type": "text-image",
