@@ -32,8 +32,8 @@
             "title": "Más información",
             "items": [
               {
-                "question": "¿Dónde estaba ubicado el convento originalmente?",
-                "answer": "..."
+                "title": "Saber Mas",
+                "content": "El monasterio de Jonqueres pertenecía a la Orden de Santiago, una orden religiosa y militar fundada en el siglo XII."
               }
             ]
           }
