@@ -7,6 +7,21 @@
         "id": "origin",
         "label": "Origen del templo",
         "icon": "icons/jonqueres.png"
+      },
+      {
+        "id": "transfer",
+        "label": "El Translado",
+        "icon": "icons/traslado.png"
+      },
+      {
+        "id": "architecture",
+        "label": "El Gótico en el Eixample",
+        "icon": "icons/gotico.png"
+      },
+      {
+        "id": "place",
+        "label": "Ubicación",
+        "icon": "icons/ubicacion.png"
       }
     ],
     "sections": {
