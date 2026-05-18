@@ -14,14 +14,14 @@
         "icon": "icons/traslado.png"
       },
       {
-        "id": "architecture",
-        "label": "El Gótico en el Eixample",
-        "icon": "icons/gotico.png"
+        "id": "cloister",
+        "label": "El Claustro",
+        "icon": "icons/claustro.png"
       },
       {
-        "id": "place",
-        "label": "Ubicación",
-        "icon": "icons/ubicacion.png"
+       "id": "bell-tower",
+        "label": "El Campanario",
+        "icon": "icons/campanario.png"
       }
     ],
     "sections": {
