@@ -106,7 +106,7 @@ if (block.type === "accordion") {
                         ${item.title}
                     </summary>
 
-                    <div class="mt-4 leading-relaxed whitespace-pre-line text-base md:text-5xl">
+                    <div class="mt-4 leading-relaxed whitespace-pre-line text-base md:text-2xl">
                         ${item.content}
                     </div>
                 </details>
