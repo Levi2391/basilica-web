@@ -96,24 +96,24 @@ function showHistoria(sectionId) {
                 `;
             }
 
-            // 📌 Accordion
-            if (block.type === "accordion") {
-                return `
-                    <div class="mb-12">
-                        ${block.items.map(item => `
-                            <details class="border border-gray-300 rounded-lg p-4 mb-4 bg-white/5">
-                                <summary class="cursor-pointer font-bold text-lg">
-                                    ${item.title}
-                                </summary>
+          // 📌 Accordion
+if (block.type === "accordion") {
+    return `
+        <div class="mb-12">
+            ${block.items.map(item => `
+                <details class="border border-gray-300 rounded-lg p-4 mb-4 bg-white/5">
+                    <summary class="cursor-pointer font-bold text-lg">
+                        ${item.title}
+                    </summary>
 
-                                <div class="mt-4 leading-relaxed">
-                                    ${item.content}
-                                </div>
-                            </details>
-                        `).join("")}
+                    <div class="mt-4 leading-relaxed whitespace-pre-line">
+                        ${item.content}
                     </div>
-                `;
-            }
+                </details>
+            `).join("")}
+        </div>
+    `;
+}
 
             return "";
 
