@@ -34,7 +34,7 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/location_Junqueras.jpg",
+            "img": "./imagenes_originales/jonqueres.jpg",
             "p": "Se encontraba junto a las antiguas murallas, cerca de la actual plaza de Urquinaona."
           },
           {
@@ -64,13 +64,13 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/jonqueres.jpg",
+            "img": "./imagenes_originales/location_Junqueras.jpg",
             "p": "Para permitir esta expansión, el antiguo monasterio fue derribado."
           },
           {
             "type": "text-image",
             "p": "Pero ocurrió algo extraordinario:\nentre 1869 y 1871, la iglesia fue desmontada y reconstruida aquí, piedra a piedra.",
-            "img": "./imagenes_originales/Jonqueres-23.jpg"
+            "img": "./imagenes_originales/Traslado.jpg"
           },
           {
             "type": "accordion",
