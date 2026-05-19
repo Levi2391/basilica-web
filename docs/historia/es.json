@@ -53,7 +53,35 @@
   
               }
             ]
-          }
+          },
+        "transfer": {
+        "title": "Cuando Barcelona cambió para siempre",
+        "content": [
+          {
+            "type": "paragraph",
+            "p": "En el siglo XIX, la ciudad creció más allá de sus murallas, dando lugar al Eixample."
+          },
+          {
+            "type": "image-text",
+            "img": "./imagenes_originales/jonqueres.jpg",
+            "p": "Para permitir esta expansión, el antiguo monasterio fue derribado."
+          },
+          {
+            "type": "text-image",
+            "p": "Pero ocurrió algo extraordinario:\n entre 1869 y 1871, la iglesia fue desmontada y reconstruida aquí, piedra a piedra.",
+            "img": "./imagenes_originales/Jonqueres-23.jpg"
+          },
+          {
+            "type": "accordion",
+            "title": "Más información",
+            "items": [
+              {
+                "title": "Saber Mas",
+                "content": "En el siglo XIX, Barcelona vivió una profunda transformación urbana y política. \n\n Tras el derribo de las murallas y el inicio de la construcción del Eixample, muchos edificios antiguos desaparecieron para abrir espacio a la nueva ciudad. \n\n A este proceso se sumó la desamortización de Mendizábal, impulsada por el Estado, que provocó el cierre y expropiación de numerosos conventos y monasterios. \n\n El monasterio de Jonqueres fue condenado al derribo. Sin embargo, la Comisión de Monumentos y la Academia de Bellas Artes impulsaron una decisión excepcional para la época:\n\n desmontar la iglesia piedra a piedra y reconstruirla en el nuevo Eixample. \n\n La nave principal fue trasladada e inaugurada entre 1869 y 1871, mientras que el resto del conjunto continuó completándose durante las décadas siguientes."
+  
+              }
+            ]
+          },
         ]
       }
     }
