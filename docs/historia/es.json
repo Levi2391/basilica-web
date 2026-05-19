@@ -83,6 +83,31 @@
             ]
           }
         ]
+      },
+        "cloister": {
+        "title": "Un jardín medieval en la ciudad",
+        "content": [
+          {
+            "type": "paragraph",
+            "p": "El claustro formaba parte del monasterio original de Jonqueres."
+          },
+          {
+            "type": "image-text",
+            "img": "./imagenes_originales/Claustro.jpg",
+            "p": "Fue trasladado y reconstruido entre 1869 y 1888, conservando su estructura gótica."
+          },
+          {
+            "type": "text-image",
+            "p": "Hoy es uno de los espacios más emblemáticos del conjunto:un lugar de calma en pleno centro de Barcelona.",
+            "img": "./imagenes_originales/Claustro2.jpg"
+          },
+          {
+            "type": "accordion",
+            "title": "Más información",
+            "items": [
+              {
+                "title": "Saber Más",
+                "content": "El claustro era uno de los espacios principales de la vida monástica: un lugar de silencio, oración y recogimiento.\n\n El claustro original del monasterio de Jonqueres tenía aproximadamente el doble del tamaño del actual.\n\n Durante el traslado y reconstrucción del conjunto en el siglo XIX, solo pudo conservarse una parte, adaptada al nuevo espacio disponible.\n\n Aun así, sus galerías y elementos góticos originales permiten imaginar la dimensión y belleza del antiguo monasterio medieval."
       }
     }
   }
