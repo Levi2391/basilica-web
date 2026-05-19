@@ -61,4 +61,5 @@ function updateLangUI() {
             btn.classList.remove("active-lang");
         }
     });
-}
+},
+window.changeLang = changeLang;
