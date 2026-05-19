@@ -113,7 +113,31 @@
             ]
           }
         ]
-      }
+      },
+      "bell-tower": {
+        "title": "Una torre con otra historia",
+        "content": [
+          {
+            "type": "paragraph",
+            "p": "El campanario no pertenecía originalmente a este conjunto."
+          },
+          {
+            "type": "image-text",
+            "img": "./imagenes_originales/campanario.jpg",
+            "p": "Procede de la antigua iglesia de Sant Miquel y fue añadido en 1879, completando el edificio actual."
+          },
+          {
+            "type": "accordion",
+            "title": "Más información",
+            "items": [
+              {
+                "title": "Saber Más",
+                "content": "El campanario procede de la antigua parroquia de Sant Miquel, un templo medieval situado cerca de la actual Plaça Sant Jaume. \n\n Cuando aquella iglesia fue derribada, su campanario se conservó y más tarde fue incorporado a este conjunto en 1879. \n\n La unión de elementos procedentes de distintos edificios históricos convirtió la basílica en un conjunto arquitectónico único en Barcelona."
+              }
+            ]
+          }
+        ]
+      
     }
   }
 }
