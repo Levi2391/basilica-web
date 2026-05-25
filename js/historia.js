@@ -12,8 +12,14 @@ async function openHistoria() {
     }
 
     const { title, intro } = translations.history;
+    const menuHTML = await loadHistoriaMenuComponent();
 
-    container.innerHTML = `
+    const temp = document.createElement("div");
+    temp.innerHTML = menuHTML;
+
+    container.innerHTML = "";
+    container.appendChild(temp.querySelector("#langs"));
+    container.insertAdjacentHTML("beforeend", `
         <div class="history-header mb-10">
             <h1 class="text-5xl font-bold mb-6">
                 ${title}
@@ -23,20 +29,8 @@ async function openHistoria() {
                 ${intro}
             </p>
         </div>
-
-        <div id="historiaMenu"></div>
-    `;
-
-    const res = await fetch("components/historia-menu.html");
-    const menuHTML = await res.text();
-
-    const menuDiv = container.querySelector("#historiaMenu");
-
-    if (menuDiv) {
-        menuDiv.innerHTML = menuHTML;
-    } else {
-        container.innerHTML += menuHTML;
-    }
+    `);
+    container.appendChild(temp.querySelector("#historiaMenu"));
 
     renderHistoriaMenu(container);
     updateLangUI();
@@ -99,15 +93,15 @@ function showHistoria(sectionId) {
           // 📌 Accordion
 if (block.type === "accordion") {
     return `
-        <div class="mb-12">
+        <div class="mb-12" id="accordion">
             ${block.items.map(item => `
                 <details class="border border-gray-300 rounded-lg p-4 mb-4 bg-white/5">
-                    <summary class="cursor-pointer font-bold text-lg">
+                    <summary class="cursor-pointer font-bold card-title card-time">
                         ${item.title}
                     </summary>
 
                     <div class="mt-4 leading-relaxed whitespace-pre-line text-base md:text-2xl">
-                        ${item.content}
+                        <p>${item.content}</p>
                     </div>
                 </details>
             `).join("")}
