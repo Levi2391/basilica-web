@@ -144,6 +144,52 @@ span {
 }
 
 #kioskMenu {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2vh 3vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.kiosk-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kiosk-logo {
+    height: clamp(40px, 7vh, 80px);
+    object-fit: contain;
+}
+
+.kiosk-menu-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.kiosk-close-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    font-size: clamp(16px, 2.4vh, 28px);
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.kiosk-close-btn:hover,
+.kiosk-close-btn:active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.kiosk-nav-buttons {
     display: flex;
     gap: 2vw;
 }
@@ -278,6 +324,7 @@ body {
     height: 100%;
     background: black;
     display: none;
+    z-index: 10;
 }
 
 #historia-container {

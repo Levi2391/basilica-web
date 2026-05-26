@@ -1,6 +1,19 @@
 <div id="kioskMenu">
-    <button class="menu-btn" onclick="openHistoria()">HISTORIA</button>
-    <button class="menu-btn" onclick="openHorarios()">HORARIOS</button>
-    <button class="menu-btn" onclick="openActividades()">ACTIVIDADES</button>
-    <button class="menu-btn" onclick="openContacto()">CONTACTO</button>
+
+    <div class="kiosk-menu-header">
+        <img src="https://i.postimg.cc/PJ7n4nt7/logo-La-Basi-lica-de-la-Puri-ssima-Concepcio.jpg"
+            class="kiosk-logo">
+        <div class="kiosk-menu-controls">
+            <button id="themeIcon" onclick="toggleTheme()" class="theme-btn">🌙</button>
+            <button onclick="hideKioskMenu()" class="kiosk-close-btn">✕</button>
+        </div>
+    </div>
+
+    <div class="kiosk-nav-buttons">
+        <button class="menu-btn" onclick="openHistoria(); hideKioskMenu()">HISTORIA</button>
+        <button class="menu-btn" onclick="openHorarios(); hideKioskMenu()">HORARIOS</button>
+        <button class="menu-btn" onclick="openActividades(); hideKioskMenu()">ACTIVIDADES</button>
+        <button class="menu-btn" onclick="openContacto(); hideKioskMenu()">CONTACTO</button>
+    </div>
+
 </div>
