@@ -17,6 +17,7 @@
 
 <body onclick="resetTimer()" ontouchstart="resetTimer()">
     <div id="tapHint">Toca la pantalla</div>
+    <button id="hamburgerBtn" onclick="event.stopPropagation(); showKioskMenu(); clearTimeout(menuTimer); menuTimer = setTimeout(hideKioskMenu, MENU_TIMEOUT)">&#9776;</button>
     <div id="menuContainer"></div>
     <div id="videoContainer">
         <video id="mainVideo" autoplay loop muted playsinline preload="auto">
@@ -40,7 +41,7 @@
         let menuTimer;
         let viewTracker = [];
 
-        const MENU_TIMEOUT = 6000;
+        const MENU_TIMEOUT = 20000;
 
         function showKioskMenu() {
             const mc = document.getElementById("menuContainer");

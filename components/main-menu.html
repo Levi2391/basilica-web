@@ -5,7 +5,7 @@
             class="kiosk-logo">
         <div class="kiosk-menu-controls">
             <button id="themeIcon" onclick="toggleTheme()" class="theme-btn">🌙</button>
-            <button onclick="hideKioskMenu()" class="kiosk-close-btn">✕</button>
+            <button onclick="event.stopPropagation(); hideKioskMenu()" class="kiosk-close-btn">✕</button>
         </div>
     </div>
 
