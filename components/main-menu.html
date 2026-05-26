@@ -1,41 +1,6 @@
-<nav class="menu-bar sm:px-3 max-sm:py-2 max-sm:px-6">
-
-    <!-- TOP ROW -->
-    <div class="flex items-center justify-between w-full">
-
-        <img src="https://i.postimg.cc/PJ7n4nt7/logo-La-Basi-lica-de-la-Puri-ssima-Concepcio.jpg"
-            class="h-16 sm:h-18 md:h-20 object-contain">
-
-        <!-- DESKTOP MENU -->
-        <div class="hidden sm:flex justify-center gap-4 sm:gap-2">
-            <button class="menu-btn" onclick="openHistoria()">HISTORIA</button>
-            <button class="menu-btn" onclick="openHorarios()">HORARIOS</button>
-            <button class="menu-btn" onclick="openActividades()">ACTIVIDADES</button>
-            <button class="menu-btn" onclick="openContacto()">CONTACTO</button>
-        </div>
-
-        <!-- Right side (hamburger + theme) -->
-        <div class="flex items-center gap-5">
-
-            <!-- Hamburger -->
-            <button class="sm:hidden text-3xl" onclick="toggleMenu()">
-                ☰
-            </button>
-
-            <!-- Theme -->
-            <button onclick="toggleTheme()" class="theme-btn text-xl sm:text-2xl">
-                🌙
-            </button>
-
-        </div>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div id="mobileMenu" class="menu-collapsed flex flex-col w-full gap-2 sm:hidden">
-        <button class="menu-btn" onclick="openHistoria(); closeMenu()">HISTORIA</button>
-        <button class="menu-btn" onclick="openHorarios(); closeMenu()">HORARIOS</button>
-        <button class="menu-btn" onclick="openActividades(); closeMenu()">ACTIVIDADES</button>
-        <button class="menu-btn" onclick="openContacto(); closeMenu()">CONTACTO</button>
-    </div>
-
-</nav>
+<div id="kioskMenu">
+    <button class="menu-btn" onclick="openHistoria()">HISTORIA</button>
+    <button class="menu-btn" onclick="openHorarios()">HORARIOS</button>
+    <button class="menu-btn" onclick="openActividades()">ACTIVIDADES</button>
+    <button class="menu-btn" onclick="openContacto()">CONTACTO</button>
+</div>

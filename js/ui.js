@@ -14,4 +14,5 @@ function goHome() {
     document.getElementById("panel").style.display = "none";
     document.getElementById("mainVideo").play();
     currentView = "video";
+    hideKioskMenu();
 }

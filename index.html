@@ -16,6 +16,7 @@
 </head>
 
 <body onclick="resetTimer()" ontouchstart="resetTimer()">
+    <div id="tapHint">Toca la pantalla</div>
     <div id="menuContainer"></div>
     <div id="videoContainer">
         <video id="mainVideo" autoplay loop muted playsinline preload="auto">
@@ -36,25 +37,40 @@
     <script>
         // --- Timer
         let inactivityTimer;
+        let menuTimer;
         let viewTracker = [];
+
+        const MENU_TIMEOUT = 6000;
+
+        function showKioskMenu() {
+            const mc = document.getElementById("menuContainer");
+            if (mc) mc.classList.add("menu-visible");
+            const hint = document.getElementById("tapHint");
+            if (hint) hint.classList.add("hidden");
+        }
+
+        function hideKioskMenu() {
+            const mc = document.getElementById("menuContainer");
+            if (mc) mc.classList.remove("menu-visible");
+            const hint = document.getElementById("tapHint");
+            if (hint) hint.classList.remove("hidden");
+        }
 
         // --- Timer de inactividad ---
         function resetTimer() {
             clearTimeout(inactivityTimer);
+            clearTimeout(menuTimer);
 
-            let timeout = 60000; // default 1 minute
-
-            if (currentView === "history") {
-                timeout = 120000; // 2 minutes for history pages
-            }
-
-            if (
-                currentView?.startsWith("history-detail")
-            ) {
-                timeout = 300000; // 5 minutes for history pages
-            }
+            let timeout = 60000;
+            if (currentView === "history") timeout = 120000;
+            if (currentView?.startsWith("history-detail")) timeout = 300000;
 
             inactivityTimer = setTimeout(goHome, timeout);
+
+            if (currentView === "video") {
+                showKioskMenu();
+                menuTimer = setTimeout(hideKioskMenu, MENU_TIMEOUT);
+            }
         }
 
         // --- Eliminar todos los botones de historia ---
