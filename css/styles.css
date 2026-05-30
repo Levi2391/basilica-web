@@ -305,11 +305,6 @@ span {
     cursor: pointer;
 }
 
-body {
-    background-color: var(--bg-main);
-    color: var(--text-main);
-}
-
 .card {
     background: var(--bg-card);
     color: var(--text-main);
@@ -425,99 +420,6 @@ body {
     align-items: center;
 }
 
-/* Main Menu */
-.menu-bar {
-    /* height: 10vh; */
-    min-height: clamp(60px, 8vh, 10vh);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-right: 1.8rem;
-    background: var(--bg-card);
-    border-top: 2px solid var(--border);
-}
-
-#mobileMenu {
-    position: relative;
-    z-index: 10;
-    overflow: hidden;
-    transition:
-        max-height 0.4s ease-in-out,
-        opacity 0.3s ease-in-out,
-        transform 0.3s ease-in-out;
-}
-
-.menu-collapsed {
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-}
-
-.menu-open {
-    max-height: 500px;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-}
-
-#mobileMenu button {
-    width: 100%;
-    padding: 10px;
-}
-
-.menu-left {
-    display: flex;
-    align-items: center;
-    transition: all 0.2s ease;
-}
-
-.menu-logo {
-    height: clamp(50px, 8vh, 120px);
-    max-height: 90px;
-    object-fit: contain;
-    width: auto;
-}
-
-.menu-buttons {
-    gap: 0.5rem;
-    width: 100%;
-}
-
-.menu-btn {
-    width: 100%;
-    text-align: center;
-    font-size: clamp(14px, 2.2vw, 28px);
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    background: var(--text-accent);
-    color: white;
-    border-radius: 5px;
-    font-family: "Noto Serif Display", serif;
-    font-weight: bold;
-    letter-spacing: 2px;
-    transition: all 0.2s ease;
-}
-
-.menu-btn:hover {
-    background: var(--primary-strong);
-}
-
-.menu-right {
-    display: flex;
-    align-items: center;
-}
-
-.theme-btn {
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
 .img-contained {
     height: 100vh;
     object-fit: cover;
@@ -569,22 +471,6 @@ div#langs {
     font-weight: bold;
     border-radius: 6px;
     padding: 6px 12px;
-}
-
-@media (min-width: 640px) {
-    .menu-buttons {
-        width: auto;
-        gap: 1.2rem;
-    }
-
-    .menu-buttons button {
-        width: fit-content;
-    }
-
-    .menu-btn {
-        width: 100%;
-        padding: 6px 12px;
-    }
 }
 
 @media (max-width: 640px) {
