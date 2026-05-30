@@ -61,4 +61,3 @@ function updateLangUI() {
         }
     });
 }
-window.changeLang = changeLang;
