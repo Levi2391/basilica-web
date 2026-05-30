@@ -23,7 +23,6 @@ async function openHistoria() {
     updateLangUI();
 }
 
-
 function showHistoria(sectionId) {
     currentView = `history-detail-${sectionId}`;
 
@@ -36,16 +35,10 @@ function showHistoria(sectionId) {
     }
 
     container.innerHTML = `
-        <h1 class="text-5xl my-10">
-            ${section.title}
-        </h1>
-
+        <h1 class="text-5xl my-10">${section.title}</h1>
         ${section.content.map(block => {
-
-            // 📌 Texto simple
-            if (block.type === "paragraph") {
-                return `<p class="mb-12">${block.p}</p>`;
-            }
+        if (block.type === "paragraph")
+            return `<p class="mb-12">${block.p}</p>`;
 
             // 📌 Texto + imagen
             if (block.type === "text-image") {
