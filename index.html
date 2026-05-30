@@ -1,414 +1,160 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Basílica de la Concepción</title>
-
-<style>
-
-html,body{
-margin:0;
-padding:0;
-height:100%;
-font-family:Arial;
-background:black;
-overflow:hidden;
-}
-
-/* VIDEO */
-
-#videoContainer{
-height:85vh;
-}
-
-video{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-/* MENU PRINCIPAL */
-
-#menu{
-height:15vh;
-display:flex;
-}
-
-.menuBtn{
-flex:1;
-border:none;
-font-size:2.5vh;
-color:white;
-cursor:pointer;
-}
-
-#btnHistoria{background:#1e3a5f;}
-#btnHorarios{background:#1e3a5f;}
-#btnActividades{background:#1e3a5f;}
-#btnContacto{background:#1e3a5f;}
-
-/* PANEL */
-
-#panel{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-display:none;
-}
-
-#canvasView{
-width:100vw;
-height:100vh;
-display:block;
-}
-
-/* BOTON VOLVER */
-
-.backBtn{
-position:absolute;
-top:20px;
-left:20px;
-z-index:10;
-padding:14px 24px;
-font-size:22px;
-background:#222;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-}
-
-/* MENU HISTORIA */
-
-#historiaMenu{
-
-position:absolute;
-
-top:50%;
-left:50%;
-
-transform:translate(-50%,-50%);
-
-width:85%;
-max-width:600px;
-
-}
-
-.historiaBtn{
-
-display:flex;
-align-items:center;
-
-background:#1d57a8;
-
-color:white;
-
-padding:18px;
-
-border-radius:40px;
-
-margin:18px 0;
-
-font-size:24px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-box-shadow:0 5px 10px rgba(0,0,0,0.3);
-
-}
-
-.historiaBtn img{
-
-width:55px;
-height:55px;
-
-border-radius:50%;
-
-margin-right:18px;
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basílica de la Concepción</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/activities.js"></script>
+    <script src="./js/horarios.js"></script>
+    <script src="./js/contact.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300&family=Noto+Serif+Display:ital,wght@0,300;1,300&display=swap');
+    </style>
 </head>
 
 <body onclick="resetTimer()" ontouchstart="resetTimer()">
-
-<!-- VIDEO -->
-
-<div id="videoContainer">
-
-<video id="mainVideo" autoplay loop muted playsinline>
-<source src="video.mp4" type="video/mp4">
-</video>
-
-</div>
-
-<!-- MENU -->
-
-<div id="menu">
-
-<button id="btnHistoria" class="menuBtn" onclick="openHistoria()">HISTORIA</button>
-
-<button id="btnHorarios" class="menuBtn" onclick="openHorarios()">HORARIOS</button>
-
-<button id="btnActividades" class="menuBtn" onclick="openActividades()">ACTIVIDADES</button>
-
-<button id="btnContacto" class="menuBtn" onclick="openContacto()">CONTACTO</button>
-
-</div>
-
-<!-- PANEL -->
-
-<div id="panel">
-
-<button class="backBtn" onclick="goBack()">VOLVER</button>
-
-<canvas id="canvasView"></canvas>
-
-</div>
-
-<script>
-
-let inactivityTimer
-let currentView="video"
-
-const canvas=document.getElementById("canvasView")
-const ctx=canvas.getContext("2d")
-
-/* TIMER */
-
-function resetTimer(){
-
-clearTimeout(inactivityTimer)
-
-inactivityTimer=setTimeout(goHome,60000)
-
-}
-
-/* HOME */
-
-function goHome(){
-
-document.getElementById("panel").style.display="none"
-
-document.getElementById("mainVideo").play()
-
-removeHistoriaMenu()
-
-currentView="video"
-
-}
-
-/* BACK */
-
-function goBack(){
-
-if(currentView==="historiaDetalle"){
-
-openHistoria()
-
-}
-
-else{
-
-goHome()
-
-}
-
-}
-
-/* LIMPIAR CANVAS */
-
-function clearCanvas(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height)
-
-}
-
-/* MOSTRAR IMAGEN */
-
-function renderImage(name){
-
-removeHistoriaMenu()
-
-canvas.style.display="block"
-
-const img=new Image()
-
-img.src="imagenes/"+name+".jpg"
-
-img.onload=()=>{
-
-canvas.width=window.innerWidth
-canvas.height=window.innerHeight
-
-const cw=canvas.width
-const ch=canvas.height
-
-const ca=cw/ch
-const ia=img.width/img.height
-
-let w,h,x,y
-
-if(ia>ca){
-
-h=ch
-w=img.width*(ch/img.height)
-
-x=(cw-w)/2
-y=0
-
-}
-
-else{
-
-w=cw
-h=img.height*(cw/img.width)
-
-x=0
-y=(ch-h)/2
-
-}
-
-ctx.drawImage(img,x,y,w,h)
-
-}
-
-}
-
-/* HISTORIA MENU */
-
-function openHistoria(){
-
-document.getElementById("panel").style.display="block"
-
-canvas.style.display="none"
-
-document.getElementById("mainVideo").pause()
-
-currentView="historiaMenu"
-
-removeHistoriaMenu()
-
-const html=`
-
-<div id="historiaMenu">
-
-<div class="historiaBtn" onclick="showHistoria('ubicacion')">
-<img src="icons/ubicacion.png">
-<span>Ubicación</span>
-</div>
-
-<div class="historiaBtn" onclick="showHistoria('gotico')">
-<img src="icons/gotico.png">
-<span>El Gótico en el Eixample</span>
-</div>
-
-<div class="historiaBtn" onclick="showHistoria('jonqueres')">
-<img src="icons/jonqueres.png">
-<span>Santa María de Jonqueres</span>
-</div>
-
-<div class="historiaBtn" onclick="showHistoria('claustro')">
-<img src="icons/claustro.png">
-<span>El Claustro</span>
-</div>
-
-<div class="historiaBtn" onclick="showHistoria('campanario')">
-<img src="icons/campanario.png">
-<span>Campanario de San Miguel</span>
-</div>
-
-<div class="historiaBtn" onclick="showHistoria('traslado')">
-<img src="icons/traslado.png">
-<span>El Traslado</span>
-</div>
-
-<div class="historiaBtn" onclick="showHistoria('otras')">
-<img src="icons/otras.png">
-<span>Otras Construcciones</span>
-</div>
-
-</div>
-
-`
-
-document.getElementById("panel").insertAdjacentHTML("beforeend",html)
-
-}
-
-/* MOSTRAR HISTORIA */
-
-function showHistoria(section){
-
-currentView="historiaDetalle"
-
-renderImage(section)
-
-}
-
-/* HORARIOS */
-
-function openHorarios(){
-
-document.getElementById("panel").style.display="block"
-
-document.getElementById("mainVideo").pause()
-
-currentView="horarios"
-
-renderImage("horario")
-
-}
-
-/* ACTIVIDADES */
-
-function openActividades(){
-
-document.getElementById("panel").style.display="block"
-
-document.getElementById("mainVideo").pause()
-
-currentView="actividades"
-
-renderImage("actividades")
-
-}
-
-/* CONTACTO */
-
-function openContacto(){
-
-document.getElementById("panel").style.display="block"
-
-document.getElementById("mainVideo").pause()
-
-currentView="contacto"
-
-renderImage("contacto")
-
-}
-
-/* BORRAR MENU HISTORIA */
-
-function removeHistoriaMenu(){
-
-const m=document.getElementById("historiaMenu")
-
-if(m) m.remove()
-
-}
-
-resetTimer()
-
-</script>
-
+    <div id="menuContainer"></div>
+    <div id="videoContainer">
+        <video id="mainVideo" autoplay loop muted playsinline preload="auto">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="panel">
+        <button class="backBtn shadow-md" onclick="goBack()"> &#8592; VOLVER</button>
+        <div id="historia-container" class="view-container px-5 md:px-12 py-8 text-white"></div>
+        <div id="actividadesContainer"
+            class="view-container w-full h-full overflow-y-auto px-6 md:px-12 py-10 bg-black text-white">
+        </div>
+        <div id="horarios-container" class="view-container w-full overflow-y-auto bg-black text-white"></div>
+        <div id="contact-container" class="view-container w-full overflow-y-auto bg-black text-white"></div>
+    </div>
+
+    <script>
+        // --- Timer
+        let inactivityTimer;
+        let viewTracker = [];
+
+        // --- Timer de inactividad ---
+        function resetTimer() {
+            clearTimeout(inactivityTimer);
+
+            let timeout = 60000; // default 1 minute
+
+            if (currentView === "history") {
+                timeout = 120000; // 2 minutes for history pages
+            }
+
+            if (
+                currentView?.startsWith("history-detail")
+            ) {
+                timeout = 300000; // 5 minutes for history pages
+            }
+
+            inactivityTimer = setTimeout(goHome, timeout);
+        }
+
+        // --- Eliminar todos los botones de historia ---
+        function removeHistoriaButtons() {
+            Array.from(document.getElementById("panel").getElementsByTagName("button"))
+                .forEach(b => {
+                    if (!b.classList.contains("backBtn")) b.remove();
+                });
+        }
+
+        async function loadHistoriaMenuComponent() {
+            const res = await fetch("components/historia-menu.html");
+            console.log(res);
+            return await res.text();
+        }
+
+        // --- HORARIOS ---
+        function openHorarios() {
+            removeHistoriaButtons();
+            hideAllViews();
+            document.getElementById("panel").style.display = "grid";
+            document.getElementById("mainVideo").pause();
+            loadHorariosHTML();
+        }
+
+        // --- CONTACTO ---
+        function openContacto() {
+            removeHistoriaButtons();
+            hideAllViews();
+            document.getElementById("panel").style.display = "block";
+            document.getElementById("mainVideo").pause();
+            loadContactHTML();
+        }
+
+        resetTimer();
+
+        // --- Activities ---
+        function openActividades() {
+            removeHistoriaButtons();
+            hideAllViews();
+
+            document.getElementById("panel").style.display = "block";
+            document.getElementById("mainVideo").pause();
+
+            // 👇 Show container
+            const container = document.getElementById("actividadesContainer");
+            container.style.display = "block";
+            container.innerHTML = "Cargando...";
+
+            container.innerHTML = `
+          <h1 class="text-6xl font-bold mb-12 text-center">
+            Actividades y Eventos
+          </h1>
+        `;
+
+            currentView = "actividades";
+
+            loadActividadesHTML();
+            container.classList.remove("hidden");
+        }
+
+        function toggleTheme() {
+            const current = document.body.getAttribute("data-theme");
+            const newTheme = current === "dark" ? "light" : "dark";
+
+            document.body.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+
+            updateThemeIcon(newTheme);
+        }
+
+        // Set correct theme icon 
+        function updateThemeIcon(theme) {
+            const btn = document.getElementById("themeIcon");
+            if (!btn) return;
+
+            btn.classList.add("rotating");
+
+            setTimeout(() => {
+                btn.textContent = theme === "dark" ? "☀️" : "🌙";
+                btn.classList.remove("rotating");
+            }, 150);
+        }
+
+        // Apply saved theme on load
+        (function () {
+            const savedTheme = localStorage.getItem("theme") || "dark";
+            document.body.setAttribute("data-theme", savedTheme);
+
+            // 👇 wait a bit because menu is loaded via fetch
+            setTimeout(() => {
+                updateThemeIcon(savedTheme);
+            }, 100);
+        })();
+    </script>
+    <script src="./js/languages.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/historia.js"></script>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/app.js"></script>
 </body>
+
 </html>

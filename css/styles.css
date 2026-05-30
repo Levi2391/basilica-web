@@ -1,0 +1,459 @@
+:root {
+    /* Light Theme */
+    --bg-main: #f4f6f8;
+    --bg-card: #ffffff;
+    --bg-card-hover: #eaf2f6;
+
+    --text-main: #111111;
+    --text-muted: #777777;
+    --text-accent: #0945AE;
+
+    --primary: #477b93;
+    --primary-strong: #365c6c;
+    --accent: #d4af37;
+
+    --border: #cdd6da;
+    --shadow: rgba(0, 0, 0, 0.05);
+    --hover: #d6e4eb;
+    --link: #477b93;
+    --link-hover: #365c6c;
+}
+
+/* Dark Theme overrides */
+[data-theme="dark"] {
+    --bg-main: #1c1c1c;
+    --bg-card: #2a2a2a;
+    --bg-card-hover: #2f3f46;
+
+    --text-main: #eaeaea;
+    --text-muted: #999999;
+    --text-accent: #d4af37;
+
+    --primary: #66a6c9;
+    --primary-strong: #4a7d96;
+    /* --accent: #00b3b3; */
+    --accent: #0945AE;
+
+    --border: #444444;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --hover: #3a3a3a;
+    --link: #66a6c9;
+    --link-hover: #4a7d96;
+}
+
+/* Transition for toogle theme */
+.theme-btn {
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.theme-btn.rotating {
+    transform: rotate(180deg) scale(0.8);
+    opacity: 0.3;
+}
+
+body,
+.card,
+.section-title,
+.menu-bar,
+.menu-buttons button,
+#actividadesContainer {
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: var(--bg-main);
+    color: var(--text-main);
+    text-align: justify;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Noto Serif Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+}
+
+p,
+span {
+    font-family: "Funnel Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 2px;
+    font-size: clamp(1.3rem, 1.8rem, 2.2rem);
+
+}
+
+#menuContainer {
+    height: 10vh;
+    position: relative;
+}
+
+#videoContainer {
+    height: 90vh;
+    display: grid;
+    align-content: start;
+    justify-items: center;
+}
+
+#mainVideo {
+    height: 90vh;
+    aspect-ratio: 9 / 16;
+}
+
+.menuBtn {
+    flex: 1;
+    font-size: 2.6vh;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+#btnHistoria {
+    background: #1e3a5f;
+}
+
+#btnHorarios {
+    background: #5f3a1e;
+}
+
+#btnActividades {
+    background: #1e5f3a;
+}
+
+#btnContacto {
+    background: #5f1e3a;
+}
+
+.menuBtn:active {
+    opacity: 0.8;
+}
+
+.backBtn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 10;
+    padding: 15px 25px;
+    font-size: 2.4vh;
+    background: var(--accent);
+    color: var(--text-main);
+    border: none;
+    cursor: pointer;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+}
+
+.card {
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+.card-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease;
+}
+
+.card-body.open {
+    margin-top: 16px;
+
+}
+
+.card.hoverable {
+    cursor: pointer;
+}
+
+.card.hoverable:hover {
+    background: var(--bg-card-hover);
+    cursor: pointer;
+}
+
+.card.today {
+    background: var(--accent);
+    color: var(--text-main);
+    border-color: var(--primary);
+}
+
+.card-title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.card-time {
+    font-size: 24px;
+    color: var(--text-accent);
+}
+
+.card.today .card-time {
+    color: var(--text-main);
+}
+
+.section-title {
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+    font-variant: all-petite-caps;
+}
+
+.section-title.today {
+    color: var(--text-accent);
+}
+
+.arrow {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+#panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: none;
+}
+
+#historia-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
+#actividadesContainer {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+
+    background: var(--bg-main);
+    color: var(--text-main);
+    display: none;
+    box-sizing: border-box;
+    min-height: 80vh;
+}
+
+#horarios-container {
+    background-color: #ffffff;
+}
+
+#contact-container {
+    background-color: rgb(158, 178, 206);
+}
+
+.view-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Menu */
+.menu-bar {
+    /* height: 10vh; */
+    min-height: clamp(60px, 8vh, 10vh);
+    min-height: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 1.8rem;
+    background: var(--bg-card);
+    border-top: 2px solid var(--border);
+}
+
+#mobileMenu {
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    transition:
+        max-height 0.4s ease-in-out,
+        opacity 0.3s ease-in-out,
+        transform 0.3s ease-in-out;
+}
+
+.menu-collapsed {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.menu-open {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+#mobileMenu button {
+    width: 100%;
+    padding: 10px;
+}
+
+.menu-left {
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.menu-logo {
+    height: clamp(50px, 8vh, 120px);
+    max-height: 90px;
+    object-fit: contain;
+    width: auto;
+}
+
+.menu-buttons {
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.menu-btn {
+    width: 100%;
+    text-align: center;
+    font-size: clamp(14px, 2.2vw, 28px);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background: var(--text-accent);
+    color: white;
+    border-radius: 5px;
+    font-family: "Noto Serif Display", serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: all 0.2s ease;
+}
+
+.menu-btn:hover {
+    background: var(--primary-strong);
+}
+
+.menu-right {
+    display: flex;
+    align-items: center;
+}
+
+.theme-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.img-contained {
+    height: 100vh;
+    object-fit: cover;
+}
+
+/*Historia Section*/
+.historiaBtn {
+    display: flex;
+    vertical-align: middle;
+    justify-items: center;
+    align-items: anchor-center;
+    min-width: 75vw;
+    gap: 1.5rem;
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 12px;
+    margin-bottom: .5rem;
+    transition: all 0.3s ease;
+}
+
+.historiaBtn:hover {
+    background: var(--bg-card-hover);
+    cursor: pointer;
+}
+
+.historiaBtn img.w-20.mb-4 {
+    min-width: 6rem;
+    min-height: 5rem;
+    height: 100%;
+    margin: 0;
+    aspect-ratio: 3 / 2;
+}
+
+.historiaBtn span {
+    text-transform: uppercase;
+}
+
+div#langs {
+    column-gap: 2rem;
+    display: flex;
+    justify-content: end;
+}
+
+.active-lang {
+    background-color: var(--text-accent);
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+
+@media (min-width: 640px) {
+    .menu-buttons {
+        width: auto;
+        gap: 1.2rem;
+    }
+
+    .menu-buttons button {
+        width: fit-content;
+    }
+
+    .menu-btn {
+        width: auto;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    p,
+    span {
+        font-size: clamp(1.1rem, 3.6vw, 2rem);
+    }
+
+    .card-title {
+        font-size: clamp(1.4rem, 4vw, 2.5rem);
+    }
+
+    .menu-btn {
+
+        font-size: clamp(16px, 3.2vw, 22px);
+    }
+}
