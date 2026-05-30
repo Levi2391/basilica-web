@@ -395,6 +395,8 @@ body {
     -webkit-overflow-scrolling: touch;
     background: var(--bg-main);
     color: var(--text-main);
+    grid-template-columns: 1fr;
+    align-content: start;
 }
 
 #actividadesContainer {
