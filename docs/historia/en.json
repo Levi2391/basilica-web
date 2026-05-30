@@ -1,27 +1,17 @@
 {
   "history": {
-    "title": "History",
-    "intro": "The Basilica of the Immaculate Conception...",
+    "title": "A Church That Traveled Through Time",
+    "intro": "What you see today in the Eixample… was not born here.\nDiscover how this Gothic church was moved stone by stone in the 19th century.",
     "menu": [
       {
         "id": "origin",
-        "label": "Origin of the Temple",
+        "label": "Origin of the Church",
         "icon": "icons/jonqueres.png"
       },
       {
         "id": "transfer",
-        "label": "The Transfer",
+        "label": "The Relocation",
         "icon": "icons/traslado.png"
-      },
-      {
-        "id": "architecture",
-        "label": "Gothic Architecture",
-        "icon": "icons/gotico.png"
-      },
-      {
-        "id": "place",
-        "label": "Location",
-        "icon": "icons/ubicacion.png"
       },
       {
         "id": "cloister",
@@ -36,96 +26,116 @@
     ],
     "sections": {
       "origin": {
-        "title": "Origin of the Temple",
+        "title": "Before Being Here…",
         "content": [
           {
             "type": "paragraph",
-            "p": "A long-awaited royal permission allowed the demolition of the walls that enclosed the old city and opened the possibility for Barcelona to expand into what is now the Eixample. Near the old city walls, close to today's Urquinaona Square, stood the convent of Santa María de Jonqueres, a beautiful Gothic temple with a magnificent cloister. The necessary expansion of Barcelona made it essential for this architectural complex to be demolished at the end of the 19th century."
+            "p": "This church was originally part of the Monastery of Santa Maria de Jonqueres in medieval Barcelona."
           },
           {
             "type": "image-text",
             "img": "./imagenes_originales/jonqueres.jpg",
-            "p": "However, the City Council decided that the convent would be dismantled and moved stone by stone from its original location in the old town to the new expansion area: the Eixample. This decision marked the origin of the transfer. After several modifications (some necessary due to the damage from 1936–1939), the main nave has the appearance we see today."
+            "p": "It stood next to the old city walls, near what is now Plaça Urquinaona."
           },
           {
             "type": "text-image",
-            "p": "On December 7, 1942, a beautiful image of the Immaculate Conception, patron saint of the church, created by the sculptor Enric Monjo, was placed inside the small Neo-Gothic temple located at the center of the main altar.",
+            "p": "On December 7, 1942, a beautiful image of the Immaculate Conception — patron saint of the church — created by sculptor Enric Monjo, was placed inside the small Neo-Gothic chapel located at the center of the main altar.",
             "img": "./imagenes_originales/Jonqueres-23.jpg"
+          },
+          {
+            "type": "accordion",
+            "title": "More Information",
+            "items": [
+              {
+                "title": "Learn More",
+                "content": "The Monastery of Jonqueres belonged to the Order of Santiago, a religious and military order founded in the 12th century.\n\nThe community arrived in Barcelona from Sabadell and settled in this area of the medieval city.\n\nThe nuns of Jonqueres, known as commanders or Santiaguist sisters, mostly came from noble families of Barcelona and nearby territories.\n\nUnlike many other medieval convents, life in the community followed relatively flexible rules. The nuns had private spaces where they lived according to family ties or personal affinities, and young novices were educated within the monastery.\n\nAs a unique feature, the Order of Santiago allowed its nuns to marry, although this was uncommon before the 16th century, and some nuns were even permitted to own slaves with authorization.\n\nFor centuries, Jonqueres was one of the most important female monasteries in medieval Barcelona."
+              }
+            ]
           }
         ]
       },
+
       "transfer": {
-        "title": "The Transfer",
+        "title": "When Barcelona Changed Forever",
         "content": [
           {
             "type": "paragraph",
-            "p": "We owe it to the historical and aesthetic sensitivity of our predecessors that all the architectural elements of the parish—the main nave, cloister, and bell tower—were preserved, even if relocated from their original site."
+            "p": "In the 19th century, Barcelona expanded beyond its walls, giving rise to the Eixample district."
           },
-          {
-            "type": "image",
-            "img": "./imagenes_originales/traslado piedra a piedra.png"
-          },
-          {
-            "type": "paragraph",
-            "p": "Documentation about the transfer is not very precise, but broadly speaking: the church was moved between 1869 and 1871; the cloister was dismantled and rebuilt between 1869 and 1888; and the bell tower of San Miguel was added in 1879. The original project is attributed to architect Josep Boixareu, and the initial construction was carried out by builder Jeroni Granell."
-          }
-        ]
-      },
-      "architecture": {
-        "title": "Catalan Gothic in the Eixample",
-        "content": [
           {
             "type": "image-text",
-            "img": "./imagenes_originales/gotico.jpg",
-            "p": "The history of the Parish of the Conception has many unique features that make it especially interesting from a historical, architectural, aesthetic, social, and religious perspective. The building of the current parish, located in the heart of the Eixample, is in fact a Gothic construction. Visitors often ask: 'What is a Gothic church and cloister doing in the middle of the Eixample grid?' The answer lies in a history of relocations and reconstructions that still surprise today."
-          },
-          {
-            "type": "image",
-            "img": "./imagenes_originales/Gotico2.jpg"
-          }
-        ]
-      },
-      "place": {
-        "title": "A Privileged Location in the City",
-        "content": [
-          {
-            "type": "image-text",
-            "img": "./imagenes_originales/Basilica de la Purisima Concepcion.jpg",
-            "p": "The Church of the Conception is located in one of the busiest areas of Barcelona: the southeast corner of the block formed by Aragón, Roger de Llúria, Valencia, and Bruc streets. It has two large façades facing Aragón and Roger de Llúria streets, making it highly visible and very present in the daily life of both locals and visitors."
+            "img": "./imagenes_originales/location_Junqueras.jpg",
+            "p": "To allow this expansion, the old monastery was demolished."
           },
           {
             "type": "text-image",
-            "p": "Since its construction began, the parish became the center of numerous religious and social activities in the new expansion area of Barcelona’s Eixample.",
-            "img": "./imagenes_originales/ubicacion.png"
+            "p": "But something extraordinary happened:\nbetween 1869 and 1871, the church was dismantled and rebuilt here, stone by stone.",
+            "img": "./imagenes_originales/Traslado.jpg"
+          },
+          {
+            "type": "accordion",
+            "title": "More Information",
+            "items": [
+              {
+                "title": "Learn More",
+                "content": "In the 19th century, Barcelona underwent a profound urban and political transformation.\n\nAfter the demolition of the city walls and the beginning of the Eixample expansion, many historic buildings disappeared to make room for the new city.\n\nThis process was reinforced by the Mendizábal confiscations, promoted by the Spanish State, which led to the closure and expropriation of many convents and monasteries.\n\nThe Monastery of Jonqueres was condemned to demolition. However, the Commission of Monuments and the Academy of Fine Arts promoted an exceptional decision for the time:\n\ndismantling the church stone by stone and rebuilding it in the new Eixample district.\n\nThe main nave was relocated and inaugurated between 1869 and 1871, while the rest of the complex continued to be completed during the following decades."
+              }
+            ]
           }
         ]
       },
+
       "cloister": {
-        "title": "The Cloister",
+        "title": "A Medieval Garden in the City",
         "content": [
           {
-            "type": "text-image",
-            "p": "Attached to the church, the monastery of Santa María de Jonqueres had a magnificent Gothic cloister, one of the largest in Barcelona. Its architectural elements—two superimposed galleries with slender columns and beautiful pointed arches—share similarities with the Gothic style of the Palau de la Generalitat.",
-            "img": "./imagenes_originales/Claustro.jpg"
-          },
-          {
-            "type": "text-image",
-            "img": "./imagenes_originales/Claustro2.jpg",
-            "p": "Barcelona’s authorities also considered it important to preserve such a valuable structure. After some years, the cloister was attached to the church on adjacent parish land next to the main nave."
-          },
-          {
             "type": "paragraph",
-            "p": "Together with the main nave, the cloister is the most characteristic symbol of the parish. It serves as the central hub for non-liturgical parish activities and offers visitors an oasis of peace in the middle of a busy commercial area. It is often used for open-air concerts, cultural events, and gatherings."
+            "p": "The cloister was part of the original Monastery of Jonqueres."
+          },
+          {
+            "type": "image-text",
+            "img": "./imagenes_originales/Claustro.jpg",
+            "p": "It was relocated and rebuilt between 1869 and 1888, preserving its Gothic structure."
+          },
+          {
+            "type": "text-image",
+            "p": "Today, it is one of the most emblematic spaces of the complex: a place of calm in the heart of Barcelona.",
+            "img": "./imagenes_originales/Claustro2.jpg"
+          },
+          {
+            "type": "accordion",
+            "title": "More Information",
+            "items": [
+              {
+                "title": "Learn More",
+                "content": "The cloister was one of the main spaces of monastic life: a place of silence, prayer, and contemplation.\n\nThe original cloister of the Monastery of Jonqueres was approximately twice the size of the current one.\n\nDuring the relocation and reconstruction of the complex in the 19th century, only part of it could be preserved and adapted to the new available space.\n\nEven so, its galleries and original Gothic elements still allow visitors to imagine the scale and beauty of the old medieval monastery."
+              }
+            ]
           }
         ]
       },
+
       "bell-tower": {
-        "title": "The Bell Tower",
+        "title": "A Tower with Another Story",
         "content": [
+          {
+            "type": "paragraph",
+            "p": "The bell tower did not originally belong to this complex."
+          },
           {
             "type": "image-text",
             "img": "./imagenes_originales/campanario.jpg",
-            "p": "Near today’s Plaça de Sant Miquel, there was once a church that had to be demolished to allow urban expansion. Its Gothic bell tower was preserved and added to the Church of the Conception. Additional decorative elements were later added to its upper section, giving it the distinctive appearance we see today."
+            "p": "It comes from the old Church of Sant Miquel and was added in 1879, completing the current building."
+          },
+          {
+            "type": "accordion",
+            "title": "More Information",
+            "items": [
+              {
+                "title": "Learn More",
+                "content": "The bell tower comes from the former Parish Church of Sant Miquel, a medieval church located near today’s Plaça Sant Jaume.\n\nWhen that church was demolished, its bell tower was preserved and later incorporated into this complex in 1879.\n\nThe combination of elements from different historic buildings turned the basilica into a unique architectural ensemble in Barcelona."
+              }
+            ]
           }
         ]
       }
