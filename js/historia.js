@@ -6,36 +6,22 @@ async function openHistoria() {
     const container = document.getElementById("historia-container");
     container.style.display = "grid";
 
+    const res = await fetch("components/historia-menu.html");
+    container.innerHTML = await res.text();
+
+    const menuDiv = container.querySelector("#historiaMenu");
+    if (!menuDiv) {
+        container.innerHTML = '<div id="historiaMenu"></div>';
+    }
+
     if (!translations.history) {
         console.error("Translations not loaded yet");
         return;
     }
 
-    const { title, intro } = translations.history;
-    const menuHTML = await loadHistoriaMenuComponent();
-
-    const temp = document.createElement("div");
-    temp.innerHTML = menuHTML;
-
-    container.innerHTML = "";
-    container.appendChild(temp.querySelector("#langs"));
-    container.insertAdjacentHTML("beforeend", `
-        <div class="history-header mb-10">
-            <h1 class="text-5xl font-bold mb-6">
-                ${title}
-            </h1>
-
-            <p class="text-lg opacity-90">
-                ${intro}
-            </p>
-        </div>
-    `);
-    container.appendChild(temp.querySelector("#historiaMenu"));
-
     renderHistoriaMenu(container);
     updateLangUI();
 }
-
 
 function showHistoria(sectionId) {
     currentView = `history-detail-${sectionId}`;
@@ -49,16 +35,10 @@ function showHistoria(sectionId) {
     }
 
     container.innerHTML = `
-        <h1 class="text-5xl my-10">
-            ${section.title}
-        </h1>
-
+        <h1 class="text-5xl my-10">${section.title}</h1>
         ${section.content.map(block => {
-
-            // 📌 Texto simple
-            if (block.type === "paragraph") {
-                return `<p class="mb-12">${block.p}</p>`;
-            }
+        if (block.type === "paragraph")
+            return `<p class="mb-12">${block.p}</p>`;
 
             // 📌 Texto + imagen
             if (block.type === "text-image") {
