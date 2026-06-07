@@ -39,7 +39,7 @@
           },
           {
             "type": "text-image",
-            "p": "On December 7, 1942, a beautiful image of the Immaculate Conception — patron saint of the church — created by sculptor Enric Monjo, was placed inside the small Neo-Gothic chapel located at the center of the main altar.",
+            "p": "On December 7, 1942, a beautiful image of the Immaculate Conception — patron saint of the church — created by sculptor Enric Monjo, was placed inside the small Gothic chapel located at the center of the main altar.",
             "img": "./imagenes_originales/Jonqueres-23.jpg"
           },
           {
@@ -48,7 +48,7 @@
             "items": [
               {
                 "title": "Learn More",
-                "content": "The Monastery of Jonqueres belonged to the Order of Santiago, a religious and military order founded in the 12th century.\n\nThe community arrived in Barcelona from Sabadell and settled in this area of the medieval city.\n\nThe nuns of Jonqueres, known as commanders or Santiaguist sisters, mostly came from noble families of Barcelona and nearby territories.\n\nUnlike many other medieval convents, life in the community followed relatively flexible rules. The nuns had private spaces where they lived according to family ties or personal affinities, and young novices were educated within the monastery.\n\nAs a unique feature, the Order of Santiago allowed its nuns to marry, although this was uncommon before the 16th century, and some nuns were even permitted to own slaves with authorization.\n\nFor centuries, Jonqueres was one of the most important female monasteries in medieval Barcelona."
+                "content": "The Monastery of Jonqueres belonged to the Order of Santiago, a religious and military order founded in the 12th century.\n\nThe community arrived in Barcelona from Sabadell and settled in this area of the medieval city.\n\nThe nuns of Jonqueres, known as commanders or Santiaguist sisters, mostly came from noble families of Barcelona and nearby territories.\n\nUnlike many other medieval convents, life in the community followed relatively flexible rules. The nuns had private spaces where they lived according to family ties or personal affinities, and young novices were educated within the monastery.\n\nAs a unique feature, the Order of Santiago allowed its nuns to marry, although this was uncommon before the 16th century.\n\nFor centuries, Jonqueres was one of the most important female monasteries in medieval Barcelona."
               }
             ]
           }
