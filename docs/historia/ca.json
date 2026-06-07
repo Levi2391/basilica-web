@@ -39,7 +39,7 @@
           },
           {
             "type": "text-image",
-            "p": "El 7 de desembre de 1942 es va col·locar, a l’interior del petit temple neogòtic situat al centre de l’altar major, una bella imatge de la Immaculada Concepció, patrona del temple, realitzada per l’escultor Enric Monjo.",
+            "p": "El 7 de desembre de 1942 es va col·locar, a l’interior del petit temple gòtic situat al centre de l’altar major, una bella imatge de la Immaculada Concepció, patrona del temple, realitzada per l’escultor Enric Monjo.",
             "img": "./imagenes_originales/Jonqueres-23.jpg"
           },
           {
@@ -48,7 +48,7 @@
             "items": [
               {
                 "title": "Saber-ne més",
-                "content": "El monestir de Jonqueres pertanyia a l’Orde de Santiago, una orde religiosa i militar fundada al segle XII.\n\nLa comunitat va arribar a Barcelona procedent de Sabadell i es va establir en aquesta zona de la ciutat medieval.\n\nLes religioses de Jonqueres eren conegudes com a comanadores o freires santiaguistes i pertanyien, majoritàriament, a famílies nobles de Barcelona i altres territoris propers.\n\nA diferència d’altres convents medievals, la vida dins la comunitat seguia normes relativament flexibles. Les monges disposaven d’espais propis on convivien segons vincles familiars o afinitats, i les joves novícies rebien educació dins del monestir.\n\nCom a fet singular, l’Orde de Santiago permetia el matrimoni de les seves religioses, tot i que va ser poc habitual abans del segle XVI, i algunes monges fins i tot podien tenir esclaus amb autorització.\n\nDurant segles, Jonqueres va ser un dels monestirs femenins més importants de la Barcelona medieval."
+                "content": "El monestir de Jonqueres pertanyia a l’Orde de Santiago, una orde religiosa i militar fundada al segle XII.\n\nLa comunitat va arribar a Barcelona procedent de Sabadell i es va establir en aquesta zona de la ciutat medieval.\n\nLes religioses de Jonqueres eren conegudes com a comanadores o freires santiaguistes i pertanyien, majoritàriament, a famílies nobles de Barcelona i altres territoris propers.\n\nA diferència d’altres convents medievals, la vida dins la comunitat seguia normes relativament flexibles. Les monges disposaven d’espais propis on convivien segons vincles familiars o afinitats, i les joves novícies rebien educació dins del monestir.\n\nCom a fet singular, l’Orde de Santiago permetia el matrimoni de les seves religioses, tot i que va ser poc habitual abans del segle XVI.\n\nDurant segles, Jonqueres va ser un dels monestirs femenins més importants de la Barcelona medieval."
               }
             ]
           }
