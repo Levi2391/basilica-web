@@ -10,10 +10,10 @@
     </div>
 
     <div class="kiosk-nav-buttons">
-        <button class="menu-btn" onclick="openHistoria(); hideKioskMenu()">HISTORIA</button>
-        <button class="menu-btn" onclick="openHorarios(); hideKioskMenu()">HORARIOS</button>
-        <button class="menu-btn" onclick="openActividades(); hideKioskMenu()">ACTIVIDADES</button>
-        <button class="menu-btn" onclick="openContacto(); hideKioskMenu()">CONTACTO</button>
+        <button class="menu-btn" onclick="event.stopPropagation(); openHistoria(); hideKioskMenu()">HISTORIA</button>
+        <button class="menu-btn" onclick="event.stopPropagation(); openHorarios(); hideKioskMenu()">HORARIOS</button>
+        <button class="menu-btn" onclick="event.stopPropagation(); openActividades(); hideKioskMenu()">ACTIVIDADES</button>
+        <button class="menu-btn" onclick="event.stopPropagation(); openContacto(); hideKioskMenu()">CONTACTO</button>
     </div>
 
 </div>
