@@ -39,7 +39,7 @@
           },
           {
             "type": "text-image",
-            "p": "El 7 de diciembre de 1942 se colocó, en el interior del pequeño templo neogótico situado en el centro del altar mayor, una bella imagen de la Inmaculada Concepción, patrona del templo, realizada por el escultor Enric Monjo.",
+            "p": "El 7 de diciembre de 1942 se colocó, en el interior del pequeño templo gótico situado en el centro del altar mayor, una bella imagen de la Inmaculada Concepción, patrona del templo, realizada por el escultor Enric Monjo.",
             "img": "./imagenes_originales/Jonqueres-23.jpg"
           },
           {
@@ -48,7 +48,7 @@
             "items": [
               {
                 "title": "Saber Más",
-                "content": "El monasterio de Jonqueres pertenecía a la Orden de Santiago, una orden religiosa y militar fundada en el siglo XII.\n\nLa comunidad llegó a Barcelona procedente de Sabadell y se estableció en esta zona de la ciudad medieval.\n\nLas religiosas de Jonqueres eran conocidas como comendadoras o freiras santiaguistas y pertenecían, en su mayoría, a familias nobles de Barcelona y otros territorios cercanos.\n\nA diferencia de otros conventos medievales, la vida en la comunidad seguía normas relativamente flexibles. Las monjas disponían de espacios propios donde convivían según vínculos familiares o afinidades, y las jóvenes novicias recibían educación dentro del monasterio.\n\nComo hecho singular, la Orden de Santiago permitía el matrimonio de sus religiosas aunque fue poco habitual antes del siglo XVI y algunas monjas podían incluso tener esclavos con autorización.\n\nDurante siglos, Jonqueres fue uno de los monasterios femeninos más importantes de la Barcelona medieval."
+                "content": "El monasterio de Jonqueres pertenecía a la Orden de Santiago, una orden religiosa y militar fundada en el siglo XII.\n\nLa comunidad llegó a Barcelona procedente de Sabadell y se estableció en esta zona de la ciudad medieval.\n\nLas religiosas de Jonqueres eran conocidas como comendadoras o freiras santiaguistas y pertenecían, en su mayoría, a familias nobles de Barcelona y otros territorios cercanos.\n\nA diferencia de otros conventos medievales, la vida en la comunidad seguía normas relativamente flexibles. Las monjas disponían de espacios propios donde convivían según vínculos familiares o afinidades, y las jóvenes novicias recibían educación dentro del monasterio.\n\nComo hecho singular, la Orden de Santiago permitía el matrimonio de sus religiosas aunque fue poco habitual antes del siglo XVI.\n\nDurante siglos, Jonqueres fue uno de los monasterios femeninos más importantes de la Barcelona medieval."
               }
             ]
           }

@@ -17,8 +17,8 @@ async function changeLang(lang) {
     if (currentView === "history") {
         await openHistoria();
     }
-    else if (currentView.startsWith("history-detail-")) {
-        const sectionId = currentView.replace("history-detail-", "");
+    else if (currentView.startsWith("historiaDetalle")) {
+        const sectionId = currentView.split("-")[1];
         showHistoria(sectionId);
     }
 }
@@ -39,6 +39,7 @@ function renderHistoriaMenu(parent) {
     }
 
     menuContainer.innerHTML = `
+        <h1 class="text-5xl mb-10">${t.title}</h1>
         <div class="grid grid-cols-1 gap-4">
             ${t.menu.map(item => `
                 <div class="historiaBtn" onclick="navigate('history-detail','${item.id}')">

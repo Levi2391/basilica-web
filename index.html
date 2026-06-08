@@ -10,13 +10,20 @@
     <script src="./js/horarios.js"></script>
     <script src="./js/contact.js"></script>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kiosko | Basilica de la Purissima Concepcio i Assumpcio de Nostra Senyora" />
+    <link rel="manifest" href="/site.webmanifest" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300&family=Noto+Serif+Display:ital,wght@0,300;1,300&display=swap');
     </style>
 </head>
 
 <body onclick="resetTimer()" ontouchstart="resetTimer()">
-    <div id="menuBackdrop" onclick="closeMenu()"></div>
+    <div id="tapHint">Toca la pantalla</div>
+    <button id="hamburgerBtn" onclick="event.stopPropagation(); showKioskMenu(); clearTimeout(menuTimer); menuTimer = setTimeout(hideKioskMenu, MENU_TIMEOUT)">&#9776;</button>
     <div id="menuContainer"></div>
     <div id="videoContainer">
         <video id="mainVideo" autoplay loop muted playsinline preload="auto">
@@ -25,7 +32,7 @@
     </div>
 
     <div id="panel">
-        <button class="backBtn shadow-md" onclick="goBack()"> &#8592; VOLVER</button>
+        <button class="backBtn shadow-md" onclick="event.stopPropagation(); goBack()"> &#8592; VOLVER</button>
         <div id="historia-container" class="view-container px-5 md:px-12 py-8 text-white"></div>
         <div id="actividadesContainer"
             class="view-container w-full h-full overflow-y-auto px-6 md:px-12 py-10 bg-black text-white">
@@ -37,25 +44,40 @@
     <script>
         // --- Timer
         let inactivityTimer;
+        let menuTimer;
         let viewTracker = [];
+
+        const MENU_TIMEOUT = 20000;
+
+        function showKioskMenu() {
+            const mc = document.getElementById("menuContainer");
+            if (mc) mc.classList.add("menu-visible");
+            const hint = document.getElementById("tapHint");
+            if (hint) hint.classList.add("hidden");
+        }
+
+        function hideKioskMenu() {
+            const mc = document.getElementById("menuContainer");
+            if (mc) mc.classList.remove("menu-visible");
+            const hint = document.getElementById("tapHint");
+            if (hint) hint.classList.remove("hidden");
+        }
 
         // --- Timer de inactividad ---
         function resetTimer() {
             clearTimeout(inactivityTimer);
+            clearTimeout(menuTimer);
 
-            let timeout = 60000; // default 1 minute
-
-            if (currentView === "history") {
-                timeout = 120000; // 2 minutes for history pages
-            }
-
-            if (
-                currentView?.startsWith("history-detail")
-            ) {
-                timeout = 300000; // 5 minutes for history pages
-            }
+            let timeout = 60000;
+            if (currentView === "history") timeout = 120000;
+            if (currentView?.startsWith("history-detail")) timeout = 300000;
 
             inactivityTimer = setTimeout(goHome, timeout);
+
+            if (currentView === "video") {
+                showKioskMenu();
+                menuTimer = setTimeout(hideKioskMenu, MENU_TIMEOUT);
+            }
         }
 
         // --- Eliminar todos los botones de historia ---
@@ -68,7 +90,6 @@
 
         async function loadHistoriaMenuComponent() {
             const res = await fetch("components/historia-menu.html");
-            console.log(res);
             return await res.text();
         }
 
