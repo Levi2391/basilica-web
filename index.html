@@ -24,7 +24,7 @@
 <body onclick="resetTimer()" ontouchstart="resetTimer()">
     <div id="tapHint">Toca la pantalla</div>
     <button id="hamburgerBtn" onclick="event.stopPropagation(); showKioskMenu(); clearTimeout(menuTimer); menuTimer = setTimeout(hideKioskMenu, MENU_TIMEOUT)">&#9776;</button>
-    <div id="menuContainer"></div>
+    <div id="menuContainer" onclick="hideKioskMenu()"></div>
     <div id="videoContainer">
         <video id="mainVideo" autoplay loop muted playsinline preload="auto">
             <source src="video.mp4" type="video/mp4">
@@ -45,6 +45,7 @@
         // --- Timer
         let inactivityTimer;
         let menuTimer;
+        let menuJustClosed = false;
         let viewTracker = [];
 
         const MENU_TIMEOUT = 20000;
@@ -57,10 +58,12 @@
         }
 
         function hideKioskMenu() {
+            menuJustClosed = true;
             const mc = document.getElementById("menuContainer");
             if (mc) mc.classList.remove("menu-visible");
             const hint = document.getElementById("tapHint");
             if (hint) hint.classList.remove("hidden");
+            setTimeout(() => { menuJustClosed = false; }, 200);
         }
 
         // --- Timer de inactividad ---
@@ -72,9 +75,9 @@
             if (currentView === "history") timeout = 120000;
             if (currentView?.startsWith("history-detail")) timeout = 300000;
 
-            inactivityTimer = setTimeout(goHome, timeout);
+            inactivityTimer = setTimeout(() => goHome?.(), timeout);
 
-            if (currentView === "video") {
+            if (currentView === "video" && !menuJustClosed) {
                 showKioskMenu();
                 menuTimer = setTimeout(hideKioskMenu, MENU_TIMEOUT);
             }
@@ -110,6 +113,19 @@
             document.getElementById("mainVideo").pause();
             loadContactHTML();
         }
+
+        window.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) hideKioskMenu();
+        });
+
+        const tapHintTexts = ['Toca la pantalla', 'Touch the screen'];
+        let tapHintIdx = 0;
+        setInterval(() => {
+            const hint = document.getElementById('tapHint');
+            if (!hint || hint.classList.contains('hidden')) return;
+            tapHintIdx = (tapHintIdx + 1) % tapHintTexts.length;
+            hint.textContent = tapHintTexts[tapHintIdx];
+        }, 5000);
 
         resetTimer();
 

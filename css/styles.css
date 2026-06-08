@@ -116,6 +116,11 @@ span {
 
 }
 
+@keyframes tapPulse {
+    0%, 90%, 100% { opacity: 0; }
+    15%, 75%      { opacity: 0.85; }
+}
+
 /* Kiosk tap hint — label below hamburger button */
 #tapHint {
     position: fixed;
@@ -128,17 +133,17 @@ span {
     text-transform: uppercase;
     z-index: 4;
     pointer-events: none;
-    transition: opacity 0.4s ease;
     line-height: 1.3;
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-radius: 6px;
     padding: 3px 5px;
-    opacity: 0.4;
+    animation: tapPulse 5s ease-in-out infinite;
 }
 
 #tapHint.hidden {
+    animation: none;
     opacity: 0;
 }
 
