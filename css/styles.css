@@ -280,6 +280,17 @@ body {
     align-items: center;
 }
 
+/* Menu backdrop — blocks taps on video area when mobile menu is open */
+#menuBackdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}
+
 /* Main Menu */
 .menu-bar {
     /* height: 10vh; */
