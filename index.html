@@ -54,10 +54,19 @@
 
         function showKioskMenu() {
             const mc = document.getElementById("menuContainer");
+            const wasHidden = mc && !mc.classList.contains("menu-visible");
             if (mc) mc.classList.add("menu-visible");
             const hint = document.getElementById("tapHint");
             if (hint) hint.classList.add("hidden");
 
+            // resetTimer() calls showKioskMenu() on every tap while the video
+            // view is active, including taps on an already-open menu (the
+            // body's ontouchstart handler bubbles up from the tapped button).
+            // Only the hidden -> visible transition can produce the ghost
+            // click described below, so only arm the guard then - otherwise
+            // every subsequent tap on the X/nav buttons would re-arm it right
+            // before its own click fires and swallow it.
+            //
             // On touch devices the tap that opens the menu is a touchstart
             // followed, a few ms later, by a synthesized click whose target
             // is re-resolved against the DOM at click time. Since the menu
@@ -66,9 +75,11 @@
             // finger position, firing it as a ghost click. Swallow any click
             // for a brief window right after the menu opens so only a
             // genuine, later tap can activate a button.
-            menuJustOpened = true;
-            clearTimeout(menuJustOpenedTimer);
-            menuJustOpenedTimer = setTimeout(() => { menuJustOpened = false; }, 300);
+            if (wasHidden) {
+                menuJustOpened = true;
+                clearTimeout(menuJustOpenedTimer);
+                menuJustOpenedTimer = setTimeout(() => { menuJustOpened = false; }, 300);
+            }
         }
 
         function hideKioskMenu() {
