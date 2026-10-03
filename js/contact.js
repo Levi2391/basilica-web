@@ -2,7 +2,7 @@ function loadContactHTML() {
     removeHistoriaButtons();
 
     document.getElementById("panel").style.display = "block";
-    document.getElementById("mainVideo").pause();
+    slideshow.pause();
     
     const container = document.getElementById("contact-container");
     console.log(container);

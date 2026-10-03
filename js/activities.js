@@ -205,7 +205,7 @@ function groupActivitiesByDate(activities) {
 function openActividades() {
     removeHistoriaButtons();
     document.getElementById("panel").style.display = "block";
-    document.getElementById("mainVideo").pause();
+    slideshow.pause();
 
     const container = document.getElementById("actividadesContainer");
     container.classList.remove("hidden");

@@ -2,7 +2,7 @@ function loadHorariosHTML() {
     removeHistoriaButtons();
 
     document.getElementById("panel").style.display = "block";
-    document.getElementById("mainVideo").pause();
+    slideshow.pause();
     
     const container = document.getElementById("horarios-container");
     console.log(container);

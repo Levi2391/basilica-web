@@ -26,9 +26,9 @@
     <button id="hamburgerBtn" onclick="event.stopPropagation(); showKioskMenu(); clearTimeout(menuTimer); menuTimer = setTimeout(hideKioskMenu, MENU_TIMEOUT)">&#9776;</button>
     <div id="menuContainer" onclick="hideKioskMenu()"></div>
     <div id="videoContainer">
-        <video id="mainVideo" autoplay loop muted playsinline preload="auto">
-            <source src="video.mp4" type="video/mp4">
-        </video>
+        <img id="slideImage" class="slide-media">
+        <video id="slideVideo" class="slide-media" muted playsinline preload="auto"></video>
+        <div id="slideProgress"></div>
     </div>
 
     <div id="panel">
@@ -101,7 +101,7 @@
             removeHistoriaButtons();
             hideAllViews();
             document.getElementById("panel").style.display = "grid";
-            document.getElementById("mainVideo").pause();
+            slideshow.pause();
             loadHorariosHTML();
         }
 
@@ -110,7 +110,7 @@
             removeHistoriaButtons();
             hideAllViews();
             document.getElementById("panel").style.display = "block";
-            document.getElementById("mainVideo").pause();
+            slideshow.pause();
             loadContactHTML();
         }
 
@@ -135,7 +135,7 @@
             hideAllViews();
 
             document.getElementById("panel").style.display = "block";
-            document.getElementById("mainVideo").pause();
+            slideshow.pause();
 
             // 👇 Show container
             const container = document.getElementById("actividadesContainer");
@@ -189,6 +189,7 @@
         })();
     </script>
     <script src="./js/languages.js"></script>
+    <script src="./js/slideshow.js"></script>
     <script src="./js/ui.js"></script>
     <script src="./js/historia.js"></script>
     <script src="./js/navigation.js"></script>
