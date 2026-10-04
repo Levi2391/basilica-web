@@ -121,7 +121,7 @@ span {
     15%, 75%      { opacity: 0.85; }
 }
 
-/* Kiosk tap hint — label below hamburger button */
+/* Kiosk tap hint — top-left */
 #tapHint {
     position: fixed;
     left: 2vw;
@@ -147,12 +147,11 @@ span {
     opacity: 0;
 }
 
-/* Hamburger toggle button — sticky left-middle */
+/* Hamburger toggle button — top-right */
 #hamburgerBtn {
     position: fixed;
-    left: 2vw;
-    top: 50%;
-    transform: translateY(-50%);
+    right: 2vw;
+    top: 1vh;
     z-index: 4;
     background: rgba(0, 0, 0, 0.55);
     border: 1px solid rgba(255, 255, 255, 0.35);
@@ -173,7 +172,7 @@ span {
 #hamburgerBtn:hover,
 #hamburgerBtn:active {
     background: rgba(9, 69, 174, 0.75);
-    transform: translateY(-50%) scale(1.08);
+    transform: scale(1.08);
 }
 
 /* Kiosk menu — fullscreen overlay */
@@ -195,6 +194,11 @@ span {
 
 #menuContainer.menu-visible {
     opacity: 1;
+}
+
+/* Interactivity is enabled separately from the opacity reveal above - see
+   showKioskMenu() in index.html for why. */
+#menuContainer.menu-interactive {
     pointer-events: auto;
 }
 
