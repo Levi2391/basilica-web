@@ -436,13 +436,20 @@ span {
 }
 
 #contact-container {
-    background-color: rgb(158, 178, 206);
+    width: 100%;
+    height: 100%;
+    background: var(--bg-main);
+    color: var(--text-main);
 }
 
 .view-container {
     display: none;
     justify-content: center;
     align-items: center;
+    /* Some view-containers (horarios, contact) are switched to display:grid
+       at runtime instead of flex - justify-items centers a grid item the
+       way justify-content centers a flex item (align-items works for both). */
+    justify-items: center;
 }
 
 .img-contained {
@@ -456,12 +463,11 @@ span {
     align-items: center;
     justify-content: center;
     gap: 2vh;
-    height: 100%;
 }
 
 .contact-qr-img {
-    max-height: 80vh;
-    max-width: 90vw;
+    max-height: 55vh;
+    max-width: 70vw;
     object-fit: contain;
 }
 
