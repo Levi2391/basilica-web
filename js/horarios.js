@@ -10,7 +10,7 @@ function loadHorariosHTML() {
     container.innerHTML = "Cargando...";
     console.log(container);
     container.innerHTML = `
-        <img class="img-contained" src="./imagenes/horario.jpg"></img>
+        <img class="img-contained" src="./imagenes/horario.png"></img>
       `;
 
     container.classList.remove("hidden");
