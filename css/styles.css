@@ -450,6 +450,28 @@ span {
     object-fit: cover;
 }
 
+.contact-qr-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    height: 100%;
+}
+
+.contact-qr-img {
+    max-height: 80vh;
+    max-width: 90vw;
+    object-fit: contain;
+}
+
+.contact-qr-caption {
+    color: var(--text-main);
+    font-size: clamp(16px, 2.5vh, 28px);
+    letter-spacing: 1px;
+    text-align: center;
+}
+
 /*Historia Section*/
 .historiaBtn {
     display: flex;
