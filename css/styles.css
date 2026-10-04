@@ -224,8 +224,24 @@ span {
 }
 
 .kiosk-logo {
-    height: clamp(40px, 7vh, 80px);
+    /* The logo artwork is vertical/portrait (tall and narrow), unlike most
+       header logos - sized a good deal taller than the header's buttons so
+       its width still reads clearly instead of shrinking to a thin sliver. */
+    height: clamp(70px, 14vh, 160px);
+    width: auto;
     object-fit: contain;
+}
+
+.kiosk-logo-light {
+    display: none;
+}
+
+[data-theme="light"] .kiosk-logo-dark {
+    display: none;
+}
+
+[data-theme="light"] .kiosk-logo-light {
+    display: block;
 }
 
 .kiosk-menu-controls {
