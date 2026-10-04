@@ -46,8 +46,7 @@
         let inactivityTimer;
         let menuTimer;
         let menuJustClosed = false;
-        let menuJustOpened = false;
-        let menuJustOpenedTimer;
+        let menuInteractiveTimer;
         let viewTracker = [];
 
         const MENU_TIMEOUT = 20000;
@@ -59,33 +58,39 @@
             const hint = document.getElementById("tapHint");
             if (hint) hint.classList.add("hidden");
 
-            // resetTimer() calls showKioskMenu() on every tap while the video
-            // view is active, including taps on an already-open menu (the
-            // body's ontouchstart handler bubbles up from the tapped button).
-            // Only the hidden -> visible transition can produce the ghost
-            // click described below, so only arm the guard then - otherwise
-            // every subsequent tap on the X/nav buttons would re-arm it right
-            // before its own click fires and swallow it.
-            //
             // On touch devices the tap that opens the menu is a touchstart
-            // followed, a few ms later, by a synthesized click whose target
-            // is re-resolved against the DOM at click time. Since the menu
-            // just became visible (pointer-events: auto), that synthesized
-            // click can land on a nav button that appeared under the same
-            // finger position, firing it as a ghost click. Swallow any click
-            // for a brief window right after the menu opens so only a
-            // genuine, later tap can activate a button.
+            // that runs resetTimer() -> showKioskMenu() synchronously. If the
+            // menu became clickable (pointer-events: auto) right then,
+            // mobile browsers re-evaluate what's under the still-down finger
+            // against the updated layout - lighting up a nav button's
+            // :active state and letting the synthesized click that follows
+            // the same tap land on it, even though the user only meant to
+            // reveal the menu. Desktop doesn't hit this: a mouse click is a
+            // single atomic event with its target resolved before the
+            // body's onclick handler (and thus showKioskMenu) runs.
+            //
+            // Fix: reveal the menu (opacity, via "menu-visible") right away,
+            // but keep it non-interactive for a brief window via a separate
+            // "menu-interactive" class (see styles.css), so the opening
+            // tap's gesture resolves against a still-inert layer and only a
+            // later, genuine tap can activate a button. Only the hidden ->
+            // visible transition needs this - resetTimer() also calls
+            // showKioskMenu() on every subsequent tap while the menu is
+            // already open (body's ontouchstart bubbles up from the tapped
+            // button), and re-arming the delay then would make the menu
+            // briefly non-interactive right as a real tap lands on it.
             if (wasHidden) {
-                menuJustOpened = true;
-                clearTimeout(menuJustOpenedTimer);
-                menuJustOpenedTimer = setTimeout(() => { menuJustOpened = false; }, 300);
+                mc.classList.remove("menu-interactive");
+                clearTimeout(menuInteractiveTimer);
+                menuInteractiveTimer = setTimeout(() => mc.classList.add("menu-interactive"), 300);
             }
         }
 
         function hideKioskMenu() {
             menuJustClosed = true;
+            clearTimeout(menuInteractiveTimer);
             const mc = document.getElementById("menuContainer");
-            if (mc) mc.classList.remove("menu-visible");
+            if (mc) mc.classList.remove("menu-visible", "menu-interactive");
             const hint = document.getElementById("tapHint");
             if (hint) hint.classList.remove("hidden");
             setTimeout(() => { menuJustClosed = false; }, 200);
@@ -138,13 +143,6 @@
             slideshow.pause();
             loadContactHTML();
         }
-
-        document.getElementById("menuContainer").addEventListener("click", function (e) {
-            if (menuJustOpened) {
-                e.stopPropagation();
-                e.preventDefault();
-            }
-        }, true);
 
         window.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) hideKioskMenu();

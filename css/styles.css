@@ -195,6 +195,11 @@ span {
 
 #menuContainer.menu-visible {
     opacity: 1;
+}
+
+/* Interactivity is enabled separately from the opacity reveal above - see
+   showKioskMenu() in index.html for why. */
+#menuContainer.menu-interactive {
     pointer-events: auto;
 }
 
