@@ -2,7 +2,7 @@ let currentLang = "es";
 let translations = {};
 
 async function loadLanguage(lang) {
-    const res = await fetch(`docs/historia/${lang}.json`);
+    const res = await fetch(`data/historia/${lang}.json`);
     translations = await res.json();
 
     console.log("Loaded translations:", translations);
