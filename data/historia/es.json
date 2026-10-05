@@ -6,22 +6,22 @@
       {
         "id": "origin",
         "label": "Origen del templo",
-        "icon": "icons/jonqueres.png"
+        "icon": "images/icons/jonqueres.png"
       },
       {
         "id": "transfer",
         "label": "El Traslado",
-        "icon": "icons/traslado.png"
+        "icon": "images/icons/traslado.png"
       },
       {
         "id": "cloister",
         "label": "El Claustro",
-        "icon": "icons/claustro.png"
+        "icon": "images/icons/claustro.png"
       },
       {
         "id": "bell-tower",
         "label": "El Campanario",
-        "icon": "icons/campanario.png"
+        "icon": "images/icons/campanario.png"
       }
     ],
     "sections": {
@@ -34,13 +34,13 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/jonqueres.jpg",
+            "img": "./images/content/jonqueres.jpg",
             "p": "Se encontraba junto a las antiguas murallas, cerca de la actual plaza de Urquinaona."
           },
           {
             "type": "text-image",
             "p": "El 7 de diciembre de 1942 se colocó, en el interior del pequeño templo gótico situado en el centro del altar mayor, una bella imagen de la Inmaculada Concepción, patrona del templo, realizada por el escultor Enric Monjo.",
-            "img": "./imagenes_originales/Jonqueres-23.jpg"
+            "img": "./images/content/jonqueres-23.jpg"
           },
           {
             "type": "accordion",
@@ -64,13 +64,13 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/location_Junqueras.jpg",
+            "img": "./images/content/location-junqueras.jpg",
             "p": "Para permitir esta expansión, el antiguo monasterio fue derribado."
           },
           {
             "type": "text-image",
             "p": "Pero ocurrió algo extraordinario:\nentre 1869 y 1871, la iglesia fue desmontada y reconstruida aquí, piedra a piedra.",
-            "img": "./imagenes_originales/Traslado.jpg"
+            "img": "./images/content/traslado.jpg"
           },
           {
             "type": "accordion",
@@ -94,13 +94,13 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/Claustro.jpg",
+            "img": "./images/content/claustro.jpg",
             "p": "Fue trasladado y reconstruido entre 1869 y 1888, conservando su estructura gótica."
           },
           {
             "type": "text-image",
             "p": "Hoy es uno de los espacios más emblemáticos del conjunto: un lugar de calma en pleno centro de Barcelona.",
-            "img": "./imagenes_originales/Claustro2.jpg"
+            "img": "./images/content/claustro-2.jpg"
           },
           {
             "type": "accordion",
@@ -124,7 +124,7 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/campanario.jpg",
+            "img": "./images/content/campanario.jpg",
             "p": "Procede de la antigua iglesia de Sant Miquel y fue añadido en 1879, completando el edificio actual."
           },
           {

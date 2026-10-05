@@ -6,22 +6,22 @@
       {
         "id": "origin",
         "label": "Origen del temple",
-        "icon": "icons/jonqueres.png"
+        "icon": "images/icons/jonqueres.png"
       },
       {
         "id": "transfer",
         "label": "El Trasllat",
-        "icon": "icons/traslado.png"
+        "icon": "images/icons/traslado.png"
       },
       {
         "id": "cloister",
         "label": "El Claustre",
-        "icon": "icons/claustro.png"
+        "icon": "images/icons/claustro.png"
       },
       {
         "id": "bell-tower",
         "label": "El Campanar",
-        "icon": "icons/campanario.png"
+        "icon": "images/icons/campanario.png"
       }
     ],
     "sections": {
@@ -34,13 +34,13 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/jonqueres.jpg",
+            "img": "./images/content/jonqueres.jpg",
             "p": "Es trobava al costat de les antigues muralles, a prop de l’actual plaça d’Urquinaona."
           },
           {
             "type": "text-image",
             "p": "El 7 de desembre de 1942 es va col·locar, a l’interior del petit temple gòtic situat al centre de l’altar major, una bella imatge de la Immaculada Concepció, patrona del temple, realitzada per l’escultor Enric Monjo.",
-            "img": "./imagenes_originales/Jonqueres-23.jpg"
+            "img": "./images/content/jonqueres-23.jpg"
           },
           {
             "type": "accordion",
@@ -64,13 +64,13 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/location_Junqueras.jpg",
+            "img": "./images/content/location-junqueras.jpg",
             "p": "Per permetre aquesta expansió, l’antic monestir va ser enderrocat."
           },
           {
             "type": "text-image",
             "p": "Però va passar una cosa extraordinària:\nentre 1869 i 1871, l’església va ser desmuntada i reconstruïda aquí, pedra a pedra.",
-            "img": "./imagenes_originales/Traslado.jpg"
+            "img": "./images/content/traslado.jpg"
           },
           {
             "type": "accordion",
@@ -94,13 +94,13 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/Claustro.jpg",
+            "img": "./images/content/claustro.jpg",
             "p": "Va ser traslladat i reconstruït entre 1869 i 1888, conservant la seva estructura gòtica."
           },
           {
             "type": "text-image",
             "p": "Avui és un dels espais més emblemàtics del conjunt: un lloc de calma en ple centre de Barcelona.",
-            "img": "./imagenes_originales/Claustro2.jpg"
+            "img": "./images/content/claustro-2.jpg"
           },
           {
             "type": "accordion",
@@ -124,7 +124,7 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/campanario.jpg",
+            "img": "./images/content/campanario.jpg",
             "p": "Prové de l’antiga església de Sant Miquel i va ser afegit el 1879, completant l’edifici actual."
           },
           {

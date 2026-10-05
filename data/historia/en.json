@@ -6,22 +6,22 @@
       {
         "id": "origin",
         "label": "Origin of the Church",
-        "icon": "icons/jonqueres.png"
+        "icon": "images/icons/jonqueres.png"
       },
       {
         "id": "transfer",
         "label": "The Relocation",
-        "icon": "icons/traslado.png"
+        "icon": "images/icons/traslado.png"
       },
       {
         "id": "cloister",
         "label": "The Cloister",
-        "icon": "icons/claustro.png"
+        "icon": "images/icons/claustro.png"
       },
       {
         "id": "bell-tower",
         "label": "The Bell Tower",
-        "icon": "icons/campanario.png"
+        "icon": "images/icons/campanario.png"
       }
     ],
     "sections": {
@@ -34,13 +34,13 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/jonqueres.jpg",
+            "img": "./images/content/jonqueres.jpg",
             "p": "It stood next to the old city walls, near what is now Plaça Urquinaona."
           },
           {
             "type": "text-image",
             "p": "On December 7, 1942, a beautiful image of the Immaculate Conception — patron saint of the church — created by sculptor Enric Monjo, was placed inside the small Gothic chapel located at the center of the main altar.",
-            "img": "./imagenes_originales/Jonqueres-23.jpg"
+            "img": "./images/content/jonqueres-23.jpg"
           },
           {
             "type": "accordion",
@@ -64,13 +64,13 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/location_Junqueras.jpg",
+            "img": "./images/content/location-junqueras.jpg",
             "p": "To allow this expansion, the old monastery was demolished."
           },
           {
             "type": "text-image",
             "p": "But something extraordinary happened:\nbetween 1869 and 1871, the church was dismantled and rebuilt here, stone by stone.",
-            "img": "./imagenes_originales/Traslado.jpg"
+            "img": "./images/content/traslado.jpg"
           },
           {
             "type": "accordion",
@@ -94,13 +94,13 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/Claustro.jpg",
+            "img": "./images/content/claustro.jpg",
             "p": "It was relocated and rebuilt between 1869 and 1888, preserving its Gothic structure."
           },
           {
             "type": "text-image",
             "p": "Today, it is one of the most emblematic spaces of the complex: a place of calm in the heart of Barcelona.",
-            "img": "./imagenes_originales/Claustro2.jpg"
+            "img": "./images/content/claustro-2.jpg"
           },
           {
             "type": "accordion",
@@ -124,7 +124,7 @@
           },
           {
             "type": "image-text",
-            "img": "./imagenes_originales/campanario.jpg",
+            "img": "./images/content/campanario.jpg",
             "p": "It comes from the old Church of Sant Miquel and was added in 1879, completing the current building."
           },
           {

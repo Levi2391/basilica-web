@@ -15,7 +15,7 @@ function loadContactHTML() {
 
     container.innerHTML = `
         <div class="contact-qr-wrapper">
-            <img class="contact-qr-img" src="./imagenes/${qrImage}">
+            <img class="contact-qr-img" src="./images/${qrImage}">
             <span class="contact-qr-caption">Scan me / Escanéame</span>
         </div>
       `;
