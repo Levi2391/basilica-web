@@ -1,8 +1,8 @@
 <div id="kioskMenu">
 
     <div class="kiosk-menu-header">
-        <img src="https://i.postimg.cc/PJ7n4nt7/logo-La-Basi-lica-de-la-Puri-ssima-Concepcio.jpg"
-            class="kiosk-logo">
+        <img src="./imagenes/logo-dark.png" class="kiosk-logo kiosk-logo-dark">
+        <img src="./imagenes/logo-light.png" class="kiosk-logo kiosk-logo-light">
         <div class="kiosk-menu-controls">
             <button id="themeIcon" onclick="toggleTheme()" class="theme-btn">🌙</button>
             <button onclick="event.stopPropagation(); hideKioskMenu()" class="kiosk-close-btn">✕</button>
@@ -12,7 +12,6 @@
     <div class="kiosk-nav-buttons">
         <button class="menu-btn" onclick="event.stopPropagation(); openHistoria(); hideKioskMenu()">HISTORIA</button>
         <button class="menu-btn" onclick="event.stopPropagation(); openHorarios(); hideKioskMenu()">HORARIOS</button>
-        <button class="menu-btn" onclick="event.stopPropagation(); openActividades(); hideKioskMenu()">ACTIVIDADES</button>
         <button class="menu-btn" onclick="event.stopPropagation(); openContacto(); hideKioskMenu()">CONTACTO</button>
     </div>
 

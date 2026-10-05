@@ -9,8 +9,15 @@ function loadContactHTML() {
     container.style.display = "grid";
     container.innerHTML = "Cargando...";
     console.log(container);
+
+    const theme = document.body.getAttribute("data-theme");
+    const qrImage = theme === "light" ? "contact-light-qr.png" : "contact-dark-qr.png";
+
     container.innerHTML = `
-        <img class="img-contained" src="./imagenes/contacto.jpg"></img>
+        <div class="contact-qr-wrapper">
+            <img class="contact-qr-img" src="./imagenes/${qrImage}">
+            <span class="contact-qr-caption">Scan me / Escanéame</span>
+        </div>
       `;
 
     currentView = "horarios";

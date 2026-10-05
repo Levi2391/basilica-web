@@ -97,7 +97,7 @@
         }
 
         // --- Timer de inactividad ---
-        function resetTimer() {
+        function resetTimer(openMenu = true) {
             clearTimeout(inactivityTimer);
             clearTimeout(menuTimer);
 
@@ -107,7 +107,7 @@
 
             inactivityTimer = setTimeout(() => goHome?.(), timeout);
 
-            if (currentView === "video" && !menuJustClosed) {
+            if (openMenu && currentView === "video" && !menuJustClosed) {
                 showKioskMenu();
                 menuTimer = setTimeout(hideKioskMenu, MENU_TIMEOUT);
             }
@@ -156,8 +156,6 @@
             tapHintIdx = (tapHintIdx + 1) % tapHintTexts.length;
             hint.textContent = tapHintTexts[tapHintIdx];
         }, 5000);
-
-        resetTimer();
 
         // --- Activities ---
         function openActividades() {
@@ -224,6 +222,12 @@
     <script src="./js/historia.js"></script>
     <script src="./js/navigation.js"></script>
     <script src="./js/app.js"></script>
+    <script>
+        // currentView (navigation.js) must be defined before resetTimer() runs.
+        // openMenu: false - keep the menu hidden (tapHint shown) until the
+        // user's first tap, instead of auto-opening it on load.
+        resetTimer(false);
+    </script>
 </body>
 
 </html>
