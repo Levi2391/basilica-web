@@ -11,7 +11,7 @@
       {
         "id": "transfer",
         "label": "El Traslado",
-        "icon": "images/icons/traslado.png"
+        "icon": "images/icons/traslado.jpg"
       },
       {
         "id": "cloister",
@@ -21,7 +21,7 @@
       {
         "id": "bell-tower",
         "label": "El Campanario",
-        "icon": "images/icons/campanario.png"
+        "icon": "images/icons/campanario.jpg"
       }
     ],
     "sections": {

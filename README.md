@@ -39,5 +39,4 @@ The home/idle screen (`#videoContainer`) cycles through the files listed in `adv
 
 - No build step - everything is served as-is. `index.html` loads all `<script>`/`<link>` tags directly.
 - All asset paths are relative (not root-absolute) because this site is served from a GitHub Pages subpath (`/basilica-web/`), not domain root - a root-absolute path like `/favicon.ico` 404s there.
-- `images/icons/*.png`: several of these are not actually PNGs (mislabeled extensions from before this cleanup - some are full-size JPEGs/WebP reused as "icons"). Tracked as a known issue, not fixed as part of the structural reorg.
 - Local testing: serve with a static server that disables caching (mobile browsers aggressively cache otherwise), e.g. `npx http-server -c-1`, then open `http://<your-LAN-ip>:8080` on a phone on the same network.
