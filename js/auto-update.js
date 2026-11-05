@@ -5,7 +5,7 @@
 // seen, deferring the reload until the kiosk is idle so it doesn't interrupt
 // someone mid-navigation.
 
-const AUTO_UPDATE_POLL_MS = 10 * 60 * 1000; // matches GitHub Pages' own CDN cache-control max-age
+const AUTO_UPDATE_POLL_MS = 60 * 60 * 1000; // hourly - low commit frequency during the week
 
 let autoUpdateBaseline = null;
 let autoUpdateAvailable = false;
