@@ -9,7 +9,7 @@
     --blue-deep: #0A4C91; /* titles/headings */
     --blue: #0073CF;      /* Marian blue - links, buttons, CTAs */
     --gold: #C9A227;      /* accent only: rules, borders, one highlight */
-    --primary-negative: #FF8C30; /* RGB-inverse of --blue - progress bar only */
+    --progress-color: var(--blue); /* home progress bar: blue in light, gold in dark */
 
     --border: color-mix(in srgb, var(--muted) 35%, transparent);
     --shadow: rgba(0, 0, 0, 0.05);
@@ -40,7 +40,7 @@
     --blue-deep: #7CC0F5; /* Celeste - titles on dark */
     --blue: #4A9FE8;      /* Blue on dark - links/buttons */
     --gold: #E7C660;      /* Gold on dark */
-    --primary-negative: #B56017; /* RGB-inverse of --blue - progress bar only */
+    --progress-color: var(--gold);
     --border: color-mix(in srgb, var(--muted) 35%, transparent);
     --bg2-hover: color-mix(in srgb, var(--bg2) 88%, var(--blue) 12%);
 
@@ -324,7 +324,7 @@ span {
     left: 0;
     width: 0%;
     height: 4px;
-    background: var(--primary-negative);
+    background: var(--progress-color);
     z-index: 1;
 }
 
