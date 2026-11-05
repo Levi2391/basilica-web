@@ -134,7 +134,7 @@ span {
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.3px;
-    line-height: 1.7;
+    line-height: 1.8;
     font-size: clamp(1.4rem, 2vw + 1rem, 2.6rem);
 
 }
@@ -592,7 +592,7 @@ div#langs {
 
     p,
     span {
-        font-size: clamp(1.1rem, 3.6vw, 2rem);
+        font-size: clamp(1.35rem, 3.6vw, 2rem);
     }
 
     .card-title {
