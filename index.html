@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
     <title>Basílica de la Concepción</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./js/activities.js"></script>
@@ -18,6 +19,15 @@
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300&family=Noto+Serif+Display:ital,wght@0,300;1,300&display=swap');
+
+        /* Kiosk lockdown: no pull-to-refresh, no pinch-zoom, no text selection / long-press menu */
+        html, body {
+            overscroll-behavior: none;
+            touch-action: pan-x pan-y;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
     </style>
 </head>
 
@@ -42,6 +52,21 @@
     </div>
 
     <script>
+        // --- Kiosk fullscreen ---
+        // Manifest display:"fullscreen" hides the browser chrome once installed,
+        // but hiding the Android status bar also needs the real Fullscreen API -
+        // fired on first touch because browsers require a user gesture for it.
+        // Android can still dismiss fullscreen (e.g. swipe-down for the status
+        // bar), so fullscreenchange re-requests it.
+        function enterKioskFullscreen() {
+            const el = document.documentElement;
+            if (document.fullscreenElement) return;
+            (el.requestFullscreen || el.webkitRequestFullscreen)?.call(el).catch(() => {});
+        }
+        document.addEventListener('touchstart', enterKioskFullscreen, { passive: true });
+        document.addEventListener('click', enterKioskFullscreen);
+        document.addEventListener('contextmenu', e => e.preventDefault());
+
         // --- Timer
         let inactivityTimer;
         let menuTimer;
